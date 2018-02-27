@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T12:13:13.086Z</updated>
+  <updated>2018-02-27T12:30:45.627Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/02/27/new-post/"/>
     <id>http://yoursite.com/2018/02/27/new-post/</id>
     <published>2018-02-27T06:29:07.000Z</published>
-    <updated>2018-02-27T12:13:13.086Z</updated>
+    <updated>2018-02-27T12:30:45.627Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog."></a>this is a test blog.</h1><p>welcome to treamy’s world.</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><h3 id="add-some-code"><a href="#add-some-code" class="headerlink" title="add some code"></a>add some code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog."></a>this is a test blog.</h1><p>welcome to treamy’s world.</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><h3 id="add-some-code"><a href="#add-some-code" class="headerlink" title="add some code"></a>add some code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure><h3 id="标签页面"><a href="#标签页面" class="headerlink" title="标签页面"></a>标签页面</h3><p>1&gt;运行以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure></p><p>同时，在/source目录下会生成一个tags文件夹，里面包含一个index.md文件</p>]]></content>
     
     <summary type="html">
     
