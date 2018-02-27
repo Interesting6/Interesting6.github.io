@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T10:37:52.969Z</updated>
+  <updated>2018-02-27T12:13:13.086Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/02/27/new-post/"/>
     <id>http://yoursite.com/2018/02/27/new-post/</id>
     <published>2018-02-27T06:29:07.000Z</published>
-    <updated>2018-02-27T10:37:52.969Z</updated>
+    <updated>2018-02-27T12:13:13.086Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog."></a>this is a test blog.</h1><p>welcome to treamy’s world.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog."></a>this is a test blog.</h1><p>welcome to treamy’s world.</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><h3 id="add-some-code"><a href="#add-some-code" class="headerlink" title="add some code"></a>add some code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
