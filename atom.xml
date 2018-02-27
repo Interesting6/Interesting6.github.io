@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T06:29:07.585Z</updated>
+  <updated>2018-02-27T10:37:52.969Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,21 @@
     <link href="http://yoursite.com/2018/02/27/new-post/"/>
     <id>http://yoursite.com/2018/02/27/new-post/</id>
     <published>2018-02-27T06:29:07.000Z</published>
-    <updated>2018-02-27T06:29:07.585Z</updated>
+    <updated>2018-02-27T10:37:52.969Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="this-is-a-test-blog"><a href="#this-is-a-test-blog" class="headerlink" title="this is a test blog."></a>this is a test blog.</h1><p>welcome to treamy’s world.</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h1 id=&quot;this-is-a-test-blog&quot;&gt;&lt;a href=&quot;#this-is-a-test-blog&quot; class=&quot;headerlink&quot; title=&quot;this is a test blog.&quot;&gt;&lt;/a&gt;this is a test blog.&lt;/h1&gt;&lt;p&gt;
+      
+    
     </summary>
     
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
     
   </entry>
   
