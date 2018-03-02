@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T12:30:45.627Z</updated>
+  <updated>2018-03-02T09:52:39.291Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVM explained-well</title>
+    <link href="http://yoursite.com/2018/03/02/SVM-explained-well/"/>
+    <id>http://yoursite.com/2018/03/02/SVM-explained-well/</id>
+    <published>2018-03-02T09:40:40.000Z</published>
+    <updated>2018-03-02T09:52:39.291Z</updated>
+    
+    <content type="html"><![CDATA[<p>Support vector machines (SVM)</p><p>User <a href="http://www.reddit.com/user/copperking" target="_blank" rel="noopener">copperking</a> stepped up to the plate:</p><p>“We have 2 colors of balls on the table that we want to separate.</p><p><img src="/images/SVM/svm1-300x225.png" alt="image"></p><p>We get a stick and put it on the table, this works pretty well right?</p><p><img src="/images/SVM/svm2-300x225.png" alt="image"></p><p>Some villain comes and places more balls on the table, it kind of works but one of the balls is on the wrong side and there is probably a better place to put the stick now.</p><p><img src="/images/SVM/svm3-300x225.png" alt="image"></p><p>SVMs try to put the stick in the best possible place by having as big a gap on either side of the stick as possible.</p><p><img src="/images/SVM/svm4-300x225.png" alt="image"></p><p>Now when the villain returns the stick is still in a pretty good spot.</p><p><img src="/images/SVM/svm5-300x225.png" alt="image"></p><p>There is another trick in the SVM toolbox that is even more important. Say the villain has seen how good you are with a stick so he gives you a new challenge.</p><p><img src="/images/SVM/svm6-300x225.png" alt="image">svm7-300x167.png</p><p>There’s no stick in the world that will let you split those balls well, so what do you do? You flip the table of course! Throwing the balls into the air. Then, with your pro ninja skills, you grab a sheet of paper and slip it between the balls.</p><p><img src="/images/SVM/svm7-300x167.png" alt="image"></p><p>Now, looking at the balls from where the villain is standing, they balls will look split by some curvy line.</p><p><img src="/images/SVM/svm8-300x225.png" alt="image"></p><p>Boring adults the call balls data, the stick a classifier, the biggest gap trick optimization, call flipping the table kernelling and the piece of paper a hyperplane.”</p><p>I think the last step is the most beautiful no mater in mathematic or machine learning! Hope it will help you.</p><p>source: <a href="http://bytesizebio.net/2014/02/05/support-vector-machines-explained-well/" target="_blank" rel="noopener">http://bytesizebio.net/2014/02/05/support-vector-machines-explained-well/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Support vector machines (SVM)&lt;/p&gt;
+&lt;p&gt;User &lt;a href=&quot;http://www.reddit.com/user/copperking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;copperking&lt;/a&gt; s
+      
+    
+    </summary>
+    
+      <category term="theory" scheme="http://yoursite.com/categories/theory/"/>
+    
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/tags/machine-leanring/"/>
+    
+      <category term="fun math" scheme="http://yoursite.com/tags/fun-math/"/>
+    
+  </entry>
   
   <entry>
     <title>new-post</title>
