@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   定义一个bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   算法  输入：训练数据集及其标签集，要预测的数据集 统计各标签出现的频数，并拉普拉斯平滑，计算先验概率 统计在各标签下各个特征的频数，并拉普拉斯平滑，">
+<meta name="description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
 <meta name="keywords" content="machine_leanring,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my_bayes">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/my-bayes/index.html">
 <meta property="og:site_name" content="Treamy&#39;s website">
-<meta property="og:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   定义一个bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   算法  输入：训练数据集及其标签集，要预测的数据集 统计各标签出现的频数，并拉普拉斯平滑，计算先验概率 统计在各标签下各个特征的频数，并拉普拉斯平滑，">
+<meta property="og:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T16:23:51.230Z">
+<meta property="og:updated_time" content="2018-03-13T16:37:27.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my_bayes">
-<meta name="twitter:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   定义一个bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   算法  输入：训练数据集及其标签集，要预测的数据集 统计各标签出现的频数，并拉普拉斯平滑，计算先验概率 统计在各标签下各个特征的频数，并拉普拉斯平滑，">
+<meta name="twitter:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
 
 
 
@@ -386,8 +386,19 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。</p>
-<p>本程序主要分为一下部分：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本周一晚上老师讲到了<code>naive bayes（朴素贝叶斯分类器）</code>，于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。</p>
+<p>本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了<code>dict</code>数据结构，第一层key为标签，value是一个新的dict；第二层（前面那个新的dict）的key为特征，value是一个Series或者字典；第三层的key/index为特征的取值，value为频数/概率。、、（虽然看起来比较拗口，但我感觉这样能够比较清晰的分清了各个条件概率了，如果你有更好的方法，欢迎留言给我，谢谢。）</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><blockquote>
+<ul>
+<li>输入：训练数据集及其标签集，要预测的数据集</li>
+<li>统计各标签出现的频数，并拉普拉斯平滑，计算先验概率</li>
+<li>统计在各标签下各个特征的频数，并拉普拉斯平滑，计算条件概率</li>
+<li>查找要预测数据集各特征在不同标签下的条件概率和先验概率相乘得到（半）后验概率</li>
+<li>对半后验概率进行从大到小排序，选出最大值对应的标签，即为预测结果</li>
+<li>实例化测试<br>ps：这里半后验概率为我自己的定义：$P(Y_j) *\prod_{i=1}^N P(A_i|Y_j) ; i:1\to n_{feature}; j:1\to n_{label}$</li>
+</ul>
+</blockquote>
+<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>本程序主要分为一下部分：</p>
 <blockquote>
 <ul>
 <li>定义一个bayes分类器（类）</li>
@@ -396,16 +407,6 @@
 <li>进行调用训练</li>
 <li>对测试数据进行预测</li>
 <li>实例化测试</li>
-</ul>
-</blockquote>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><blockquote>
-<ul>
-<li>输入：训练数据集及其标签集，要预测的数据集</li>
-<li>统计各标签出现的频数，并拉普拉斯平滑，计算先验概率</li>
-<li>统计在各标签下各个特征的频数，并拉普拉斯平滑，计算条件概率</li>
-<li>查找要预测数据集各特征在不同标签下的条件概率和先验概率相乘得到（半）后验概率</li>
-<li>对半后验概率进行从大到小排序，选出最大值对应的标签，即为预测结果</li>
-<li>实例化测试<br>ps：这里半后验概率为我自己的定义：$P(Y_j) *\prod_{i=1}^N P(A_i|Y_j) ; i=1\to n_{feature}; j=1\to n_{label}$</li>
 </ul>
 </blockquote>
 <p>以上各对应之下的各个函数：（废话不多说，直接上代码）</p>
@@ -619,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后，好好学习，天天向上！"><span class="nav-number">4.</span> <span class="nav-text">最后，好好学习，天天向上！</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释"><span class="nav-number">3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后，好好学习，天天向上！"><span class="nav-number">5.</span> <span class="nav-text">最后，好好学习，天天向上！</span></a></li></ol></div>
             
 
           </div>
