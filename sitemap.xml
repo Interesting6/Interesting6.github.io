@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/27/new-post/</loc>
+    
+    <lastmod>2018-03-13T14:49:29.862Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
     
-    <lastmod>2018-03-13T14:41:23.126Z</lastmod>
+    <lastmod>2018-03-13T14:44:19.063Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-02-27T13:17:41.516Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/02/27/new-post/</loc>
-    
-    <lastmod>2018-02-27T12:30:45.627Z</lastmod>
     
   </url>
   
