@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） “””import numpy as npimport pandas as pd class my_n">
+<meta name="description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） ‘’’ pythonimport numpy as npimport pandas as pd cla">
 <meta name="keywords" content="machine_leanring,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my_bayes">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/my-bayes/index.html">
 <meta property="og:site_name" content="Treamy&#39;s website">
-<meta property="og:description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） “””import numpy as npimport pandas as pd class my_n">
+<meta property="og:description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） ‘’’ pythonimport numpy as npimport pandas as pd cla">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T13:20:54.867Z">
+<meta property="og:updated_time" content="2018-03-13T13:24:07.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my_bayes">
-<meta name="twitter:description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） “””import numpy as npimport pandas as pd class my_n">
+<meta name="twitter:description" content="本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。 本程序主要分为一下部分：   初始化bayes分类器（类） 计算先验概率 计算所有条件概率 进行调用训练 对测试数据进行预测 实例化测试   以上各对应之下的各个函数：（废话不多说，直接上代码） ‘’’ pythonimport numpy as npimport pandas as pd cla">
 
 
 
@@ -388,7 +388,7 @@
 </ul>
 </blockquote>
 <p>以上各对应之下的各个函数：（废话不多说，直接上代码）</p>
-<p>“””<br>import numpy as np<br>import pandas as pd</p>
+<p>‘’’ python<br>import numpy as np<br>import pandas as pd</p>
 <p>class my_naive_bayes(object):<br>    def <strong>init</strong>(self, df):<br>        super(my_naive_bayes, self).<strong>init</strong>()<br>        self.df = df<br>        self.X_train = df.iloc[:,:-1]<br>        self.y_train = df.iloc[:,-1]<br>        self.label_set = set(self.y_train)<br>        self.features = df.columns[:-1]<br>        self.label_name = df.columns[-1]<br>        self.feature_dict = {}<br>        self.n_sample = len(df)</p>
 <pre><code>def get_prior_p(self, g):
     n = len(g)
@@ -433,7 +433,7 @@ bayes = bayes.train()
 test_x = df.loc[6]
 label = bayes.predict_one(test_x)
 print(label)
-</code></pre><p>“””</p>
+</code></pre><p>‘’’</p>
 <h2 id="最后，好好学习，天天向上！"><a href="#最后，好好学习，天天向上！" class="headerlink" title="最后，好好学习，天天向上！"></a>最后，好好学习，天天向上！</h2>
       
     </div>
