@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
+    
+    <lastmod>2018-03-13T13:17:39.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/07/18-03-07/</loc>
+    
+    <lastmod>2018-03-07T08:43:35.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/03/02/SVM-explained-well/</loc>
     
     <lastmod>2018-03-02T09:52:39.291Z</lastmod>

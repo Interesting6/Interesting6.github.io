@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-02T09:52:39.291Z</updated>
+  <updated>2018-03-13T13:17:39.300Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>my_bayes</title>
+    <link href="http://yoursite.com/2018/03/13/my-bayes/"/>
+    <id>http://yoursite.com/2018/03/13/my-bayes/</id>
+    <published>2018-03-13T13:09:38.000Z</published>
+    <updated>2018-03-13T13:17:39.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。</p><p>本程序主要分为一下部分：</p><blockquote><ul><li>初始化bayes分类器（类）</li><li>计算先验概率</li><li>计算所有条件概率</li><li>进行调用训练</li><li>对测试数据进行预测</li><li>实例化测试</li></ul></blockquote><p>以上各对应之下的各个函数：（废话不多说，直接上代码）<br>“”” python<br>import numpy as np<br>    import pandas as pd</p><pre><code>class my_naive_bayes(object):    &quot;&quot;&quot;docstring for my_naive_bayes&quot;&quot;&quot;    def __init__(self, df):        super(my_naive_bayes, self).__init__()        self.df = df        self.X_train = df.iloc[:,:-1]        self.y_train = df.iloc[:,-1]        self.label_set = set(self.y_train)        self.features = df.columns[:-1]        self.label_name = df.columns[-1]        self.feature_dict = {}        self.n_sample = len(df)    def get_prior_p(self, g):        n = len(g)        prior_p = {}        for label in self.label_set:            prior_p[label] = g.size()[label] / self.n_sample        return prior_p    def get_cond_p(self, g):        cond_p = {}        for label, group in g:            cond_p[label] = {}            for feature in self.features:                counts = group[feature].value_counts()                cond_p[label][feature] = counts / sum(counts)        return cond_p    def train(self, ):        for feature in self.features:            self.feature_dict[feature] = set(self.df[feature])        g = self.df.groupby(self.label_name)        self.prior_p = self.get_prior_p(g)        self.cond_p = self.get_cond_p(g)        return self    def predict_one(self, test_X):        semi_post_p = {}        for label in self.label_set:            temp = 1            for feature in self.features:                temp = temp * self.cond_p[label][feature][test_X[feature]]            semi_post_p[label] = self.prior_p[label] * temp        return max(semi_post_p, key=semi_post_p.get)if __name__ == &apos;__main__&apos;:    df = pd.read_excel(&quot;bayes_data.xlsx&quot;,index_col=&quot;index&quot;)    # n = len(df)    # train_n = int(n*0.6)    # train_df = df[:train_n]    # test_df = df[train_n:]    bayes = my_naive_bayes(df)    bayes = bayes.train()    test_x = df.loc[6]    label = bayes.predict_one(test_x)    print(label)</code></pre><p>“””</p><h2 id="最后，好好学习，天天向上！"><a href="#最后，好好学习，天天向上！" class="headerlink" title="最后，好好学习，天天向上！"></a>最后，好好学习，天天向上！</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。&lt;/p&gt;
+&lt;p&gt;本程序主要分为一下部分：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化bayes分类器（类）&lt;/li&gt;
+&lt;li&gt;计算先验概率&lt;/li&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+      <category term="code" scheme="http://yoursite.com/categories/code/"/>
+    
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/tags/machine-leanring/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>18_03_07</title>
+    <link href="http://yoursite.com/2018/03/07/18-03-07/"/>
+    <id>http://yoursite.com/2018/03/07/18-03-07/</id>
+    <published>2018-03-07T08:27:50.000Z</published>
+    <updated>2018-03-07T08:43:35.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是开学第三天，各种事情莫名烦躁。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天是开学第三天，各种事情莫名烦躁。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="diary" scheme="http://yoursite.com/categories/diary/"/>
+    
+    
+      <category term="diary" scheme="http://yoursite.com/tags/diary/"/>
+    
+      <category term="life-style" scheme="http://yoursite.com/tags/life-style/"/>
+    
+  </entry>
   
   <entry>
     <title>SVM explained-well</title>

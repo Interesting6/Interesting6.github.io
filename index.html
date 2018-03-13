@@ -285,6 +285,379 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/my-bayes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Treamy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Treamy's website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/my-bayes/" itemprop="url">my_bayes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T21:09:38+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。</p>
+<p>本程序主要分为一下部分：</p>
+<blockquote>
+<ul>
+<li>初始化bayes分类器（类）</li>
+<li>计算先验概率</li>
+<li>计算所有条件概率</li>
+<li>进行调用训练</li>
+<li>对测试数据进行预测</li>
+<li>实例化测试</li>
+</ul>
+</blockquote>
+<p>以上各对应之下的各个函数：（废话不多说，直接上代码）<br>“”” python<br>import numpy as np<br>    import pandas as pd</p>
+<pre><code>class my_naive_bayes(object):
+    &quot;&quot;&quot;docstring for my_naive_bayes&quot;&quot;&quot;
+    def __init__(self, df):
+        super(my_naive_bayes, self).__init__()
+        self.df = df
+        self.X_train = df.iloc[:,:-1]
+        self.y_train = df.iloc[:,-1]
+        self.label_set = set(self.y_train)
+        self.features = df.columns[:-1]
+        self.label_name = df.columns[-1]
+        self.feature_dict = {}
+        self.n_sample = len(df)
+
+    def get_prior_p(self, g):
+        n = len(g)
+        prior_p = {}
+        for label in self.label_set:
+            prior_p[label] = g.size()[label] / self.n_sample
+        return prior_p
+
+    def get_cond_p(self, g):
+        cond_p = {}
+        for label, group in g:
+            cond_p[label] = {}
+            for feature in self.features:
+                counts = group[feature].value_counts()
+                cond_p[label][feature] = counts / sum(counts)
+        return cond_p
+
+    def train(self, ):
+        for feature in self.features:
+            self.feature_dict[feature] = set(self.df[feature])
+        g = self.df.groupby(self.label_name)
+
+        self.prior_p = self.get_prior_p(g)
+        self.cond_p = self.get_cond_p(g)
+        return self
+
+    def predict_one(self, test_X):
+        semi_post_p = {}
+        for label in self.label_set:
+            temp = 1
+            for feature in self.features:
+                temp = temp * self.cond_p[label][feature][test_X[feature]]
+            semi_post_p[label] = self.prior_p[label] * temp
+        return max(semi_post_p, key=semi_post_p.get)
+
+
+if __name__ == &apos;__main__&apos;:
+    df = pd.read_excel(&quot;bayes_data.xlsx&quot;,index_col=&quot;index&quot;)
+    # n = len(df)
+    # train_n = int(n*0.6)
+    # train_df = df[:train_n]
+    # test_df = df[train_n:]
+    bayes = my_naive_bayes(df)
+    bayes = bayes.train()
+
+    test_x = df.loc[6]
+    label = bayes.predict_one(test_x)
+    print(label)
+</code></pre><p>“””</p>
+<h2 id="最后，好好学习，天天向上！"><a href="#最后，好好学习，天天向上！" class="headerlink" title="最后，好好学习，天天向上！"></a>最后，好好学习，天天向上！</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/18-03-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Treamy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Treamy's website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/18-03-07/" itemprop="url">18_03_07</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T16:27:50+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/diary/" itemprop="url" rel="index">
+                    <span itemprop="name">diary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天是开学第三天，各种事情莫名烦躁。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/SVM-explained-well/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -760,7 +1133,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -771,7 +1144,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -782,7 +1155,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
