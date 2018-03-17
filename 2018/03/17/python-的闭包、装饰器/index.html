@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="fun math,python," />
 
 
 
@@ -91,18 +91,20 @@
 
 
 
-<meta name="description" content="hexo123npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化 简写12345hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo p == hexo publishhexo g == hexo generate#生成hexo s == hexo server #启动服务预览hexo d == h">
-<meta name="keywords" content="hexo">
+<meta name="description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
+<meta name="keywords" content="fun math,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo常用命令笔记">
-<meta property="og:url" content="http://yoursite.com/2018/03/13/hexo常用命令笔记/index.html">
+<meta property="og:title" content="python 的闭包、装饰器">
+<meta property="og:url" content="http://yoursite.com/2018/03/17/python-的闭包、装饰器/index.html">
 <meta property="og:site_name" content="Treamy&#39;s website">
-<meta property="og:description" content="hexo123npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化 简写12345hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo p == hexo publishhexo g == hexo generate#生成hexo s == hexo server #启动服务预览hexo d == h">
+<meta property="og:description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T15:10:19.665Z">
+<meta property="og:image" content="http://yoursite.com/images/decorator.png">
+<meta property="og:updated_time" content="2018-03-17T10:10:55.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo常用命令笔记">
-<meta name="twitter:description" content="hexo123npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化 简写12345hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo p == hexo publishhexo g == hexo generate#生成hexo s == hexo server #启动服务预览hexo d == h">
+<meta name="twitter:title" content="python 的闭包、装饰器">
+<meta name="twitter:description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
+<meta name="twitter:image" content="http://yoursite.com/images/decorator.png">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/13/hexo常用命令笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/17/python-的闭包、装饰器/"/>
 
 
 
 
 
-  <title>hexo常用命令笔记 | Treamy's website</title>
+  <title>python 的闭包、装饰器 | Treamy's website</title>
   
 
 
@@ -286,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/hexo常用命令笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/python-的闭包、装饰器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Treamy">
@@ -303,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo常用命令笔记</h1>
+          <h1 class="post-title" itemprop="name headline">python 的闭包、装饰器</h1>
         
 
         <div class="post-meta">
@@ -315,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T22:59:57+08:00">
-                2018-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T17:33:14+08:00">
+                2018-03-17
               </time>
             
 
@@ -338,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
                   </a>
                 </span>
 
@@ -349,8 +351,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/Instructions/" itemprop="url" rel="index">
-                    <span itemprop="name">Instructions</span>
+                  <a href="/categories/math/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -386,39 +388,45 @@
       
 
       
-        <h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g <span class="comment">#安装</span></span><br><span class="line">npm update hexo -g <span class="comment">#升级</span></span><br><span class="line">hexo init <span class="comment">#初始化</span></span><br></pre></td></tr></table></figure>
-<h1 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate<span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
-<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo server <span class="comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span></span><br><span class="line">hexo server -s <span class="comment">#静态模式</span></span><br><span class="line">hexo server -p 5000 <span class="comment">#更改端口</span></span><br><span class="line">hexo server -i 192.168.1.1 <span class="comment">#自定义 IP</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</span><br><span class="line">hexo g #生成静态网页</span><br><span class="line">hexo d #开始部署</span><br></pre></td></tr></table></figure>
-<h1 id="监视文件变动"><a href="#监视文件变动" class="headerlink" title="监视文件变动"></a>监视文件变动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate #使用 Hexo 生成静态文件快速而且简单</span><br><span class="line">hexo generate --watch #监视文件变动</span><br></pre></td></tr></table></figure>
-<h1 id="完成后部署"><a href="#完成后部署" class="headerlink" title="完成后部署"></a>完成后部署</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 以下两个命令的作用是相同的</span><br><span class="line">hexo generate --deploy</span><br><span class="line">hexo deploy --generate</span><br></pre></td></tr></table></figure>
-<h2 id="简写-1"><a href="#简写-1" class="headerlink" title="简写"></a>简写</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br><span class="line">hexo server -g</span><br></pre></td></tr></table></figure>
-<h1 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br></pre></td></tr></table></figure>
-<p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line">hexo new photo &quot;My Gallery&quot;</span><br><span class="line">hexo new &quot;Hello World&quot; --lang tw</span><br></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>layout</td>
-<td style="text-align:center">布局</td>
-</tr>
-<tr>
-<td>title</td>
-<td style="text-align:center">标题</td>
-</tr>
-<tr>
-<td>date</td>
-<td style="text-align:center">文件建立日期</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: 使用Hexo搭建个人博客</span><br><span class="line">layout: post</span><br><span class="line">date: 2014-03-03 19:07:43</span><br><span class="line">comments: true</span><br><span class="line">categories: Blog</span><br><span class="line">tags: [Hexo]</span><br><span class="line">keywords: Hexo, Blog</span><br><span class="line">description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。</span><br></pre></td></tr></table></figure>
+        <h1 id="一、闭包（Closure）"><a href="#一、闭包（Closure）" class="headerlink" title="一、闭包（Closure）"></a>一、闭包（Closure）</h1><h2 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h2><blockquote>
+<p>在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例。—— <a href="https://zh.wikipedia.org/wiki/闭包_(计算机科学" target="_blank" rel="noopener">维基百科</a>)</p>
+</blockquote>
+<p>这里我给个简单的解释：一个<strong>闭包</strong>就是你调用了一个<em>函数A</em>，这个<em>函数A</em>返回了一个<em>函数B</em>给你。这个<strong>返回的函数B</strong>就叫做闭包。你在<strong>调用函数A</strong>的时候<strong>传递的参数</strong>就是<strong>自由变量</strong>。</p>
+<h2 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_func</span><span class="params">(age)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'name:'</span>, name, <span class="string">'age:'</span>, age</span><br><span class="line">    <span class="keyword">return</span> inner_func</span><br><span class="line"></span><br><span class="line">bb = func(<span class="string">'matrix'</span>)</span><br><span class="line">bb(<span class="number">26</span>)  <span class="comment"># &gt;&gt;&gt; name: matrix age: 26</span></span><br></pre></td></tr></table></figure>
+<p>这里面调用func的时候就产生了一个闭包– <em>inner_func</em>,并且该闭包持有自由变量– <em>name</em>，因此这也意味着，当函数func的生命周期结束之后，<strong>name这个变量依然存在</strong>，因为它被闭包引用了，所以不会被回收。</p>
+<ul>
+<li>也有人说这种内部函数inner_func可以使用外部函数的变量name的行为就叫闭包。</li>
+</ul>
+<h1 id="二、装饰器（Decorator）"><a href="#二、装饰器（Decorator）" class="headerlink" title="二、装饰器（Decorator）"></a>二、装饰器（Decorator）</h1><h2 id="什么是装饰器？"><a href="#什么是装饰器？" class="headerlink" title="什么是装饰器？"></a>什么是装饰器？</h2><blockquote>
+<p>“装饰器的功能是将被装饰的函数当作参数传递给与装饰器对应的函数（名称相同的函数），并返回包装后的被装饰的函数”</p>
+</blockquote>
+<p>听起来有点绕，没关系，直接看示意图,其中a为 与<em>装饰器@a</em>对应的函数，<em>b</em>为装饰器修饰的函数，<em>装饰器@a</em>的作用是：<br><img src="/images/decorator.png" alt="image"><br><strong>简而言之：@a 就是将 b 传递给 a()，并返回新的 b = a(b)</strong></p>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><ol>
+<li><p>先导入包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义一个检查参数的装饰器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkParams</span><span class="params">(fn)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">        temp = map(<span class="keyword">lambda</span> x:isinstance(x,(int,)),numbers) <span class="comment"># 检查参数是否都为整型</span></span><br><span class="line">        <span class="keyword">if</span> reduce(<span class="keyword">lambda</span> x,y: x <span class="keyword">and</span> y, temp): <span class="comment"># 若都为整型</span></span><br><span class="line">            <span class="keyword">return</span> fn(*numbers)             <span class="comment"># 则调用fn(*numbers)返回计算结果</span></span><br><span class="line">        <span class="comment">#否则通过logging记录错误信息，并友好退出</span></span><br><span class="line">        logging.warning(<span class="string">"variable numbers cannot be added"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">return</span> wrapper     <span class="comment">#fn引用gcd，被封存在闭包的执行环境中返回</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后定义求最大公约数的函数（能求多个的最大公约数）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    <span class="string">"""return the greatest common divisor of the given integers."""</span></span><br><span class="line">    <span class="keyword">return</span> reduce(math.gcd, numbers)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;gcd = checkParams(gcd)</span><br><span class="line">&gt;&gt;&gt;gcd(3, <span class="string">'hello'</span>)</span><br><span class="line"><span class="comment"># 输出 WARNING:root: variable numbers cannot be added</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意checkParams函数：</p>
+<blockquote>
+<ul>
+<li>首先看参数fn，当我们调用checkParams(gcd)的时候，它将成为函数对象gcd的一个本地(Local)引用；</li>
+<li>在checkParams内部，我们定义了一个wrapper函数，添加了参数类型检查的功能，然后调用了fn(*numbers)，根据LEGB法则，解释器将搜索几个作用域，并最终在(Enclosing层) checkParams函数的本地作用域中找到fn；</li>
+<li>注意最后的return wrapper，这将创建一个闭包，fn变量(gcd函数对象的一个引用)将会封存在闭包的执行环境中，不会随着checkParams的返回而被回收；</li>
+</ul>
+</blockquote>
+<p>当调用gcd = checkParams(gcd)时，gcd指向了新的wrapper对象，它添加了参数检查和记录日志的功能，同时又能够通过封存的fn，继续调用原始的gcd进行最大公约数运算。</p>
+<p>因此调用gcd(3, ‘hello’)将不会返回计算结果，而是打印出日志：root: variable numbers cannot be added。</p>
+<p>有人觉得add = checkParams(add)这样的写法未免太过麻烦，于是python提供了一种更优雅的写法，被称为<strong>语法糖</strong>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@checkParams</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lcm</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    <span class="string">"""return lowest common multiple."""</span></span><br><span class="line">    f = <span class="keyword">lambda</span> a,b:int((a*b)/gcd(a,b))</span><br><span class="line">    <span class="keyword">return</span> reduce(f, numbers)</span><br></pre></td></tr></table></figure></p>
+<p>其实这只是一种写法上的优化，解释器仍然会将它转化为gcd = checkParams(gcd)来执行。</p>
 
       
     </div>
@@ -458,7 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+            <a href="/tags/fun-math/" rel="tag"><i class="fa fa-tag"></i> fun math</a>
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -471,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/13/my-knn/" rel="next" title="my_knn">
-                <i class="fa fa-chevron-left"></i> my_knn
+              <a href="/2018/03/13/hexo常用命令笔记/" rel="next" title="hexo常用命令笔记">
+                <i class="fa fa-chevron-left"></i> hexo常用命令笔记
               </a>
             
           </div>
@@ -480,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/17/python-的闭包、装饰器/" rel="prev" title="python 的闭包、装饰器">
-                python 的闭包、装饰器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo"><span class="nav-number">1.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简写"><span class="nav-number">2.</span> <span class="nav-text">简写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器"><span class="nav-number">3.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监视文件变动"><span class="nav-number">4.</span> <span class="nav-text">监视文件变动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完成后部署"><span class="nav-number">5.</span> <span class="nav-text">完成后部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简写-1"><span class="nav-number">5.1.</span> <span class="nav-text">简写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#草稿"><span class="nav-number">6.</span> <span class="nav-text">草稿</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模版"><span class="nav-number">7.</span> <span class="nav-text">模版</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、闭包（Closure）"><span class="nav-number">1.</span> <span class="nav-text">一、闭包（Closure）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子："><span class="nav-number">1.2.</span> <span class="nav-text">举个例子：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、装饰器（Decorator）"><span class="nav-number">2.</span> <span class="nav-text">二、装饰器（Decorator）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是装饰器？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是装饰器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子"><span class="nav-number">2.2.</span> <span class="nav-text">举个例子</span></a></li></ol></li></ol></div>
             
 
           </div>

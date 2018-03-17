@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Treamy&#39;s website">
 <meta property="og:description" content="关于在一个月前，需要用1nn做二分类的测试的时候，开始因为用sklearn训练数据时用错了数据集，百思不得其解，于是自己写了个knn来训练，当时写好后，才真正把原理给弄懂了orz，原来是数据集训练时用错了。。。改正后对比了一下自己的knn和sklearn的knn的准确率都差不多（也就是说测试通过啦），就上传到了我的GitHub。 当时我虽然有个用腾讯云搭建的博客，但基本上都没在上面写过了orz，本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T14:44:19.063Z">
+<meta property="og:updated_time" content="2018-03-14T10:11:02.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my_knn">
 <meta name="twitter:description" content="关于在一个月前，需要用1nn做二分类的测试的时候，开始因为用sklearn训练数据时用错了数据集，百思不得其解，于是自己写了个knn来训练，当时写好后，才真正把原理给弄懂了orz，原来是数据集训练时用错了。。。改正后对比了一下自己的knn和sklearn的knn的准确率都差不多（也就是说测试通过啦），就上传到了我的GitHub。 当时我虽然有个用腾讯云搭建的博客，但基本上都没在上面写过了orz，本">
@@ -356,8 +356,8 @@
 <p>当时我虽然有个用腾讯云搭建的博客，但基本上都没在上面写过了orz，本博客当时还没有问世，正好基于GitHub的服务器最近搭了这个博客，空空的也不好，最近老师第一讲就讲knn，那就把之前的代码贴上吧。</p>
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>对于一个输入的测试数据，计算该样本点到训练数据各样本点的距离，然后对所有距离由小到大排列，取前k个数据；统计该k个数据中对应的标签出现次数最多的标签，则该测试样本就被标记为该标签。</p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ul>
-<li>输入: 训练数据集：<code>T={(X_1,y_1),(X_2,y_2),...,(X_N,y_N)}</code>, 其中<code>X_i={x_i^1,x_i^2,...,x_i^n}</code>,有n个特征，N个样本点;</li>
-<li>输入：最近邻个数k，及要预测的样本点<code>X_0={x_0^1,,x_0^2,...,x_0^n}</code>;</li>
+<li>输入: 训练数据集：$T={(X_1,y_1),(X_2,y_2),…,(X_N,y_N)}$, 其中$X_i={x_i^1,x_i^2,…,x_i^n}$,有n个特征，N个样本点;</li>
+<li>输入：最近邻个数k，及要预测的样本点$X_0={x_0^1,,x_0^2,…,x_0^n}$;</li>
 <li>计算：样本点X_0到训练数据集T中各样本点的距离（一般为欧氏距离）;</li>
 <li>排序：将以上算出的距离由小到大排序，并选出前k个距离数据;</li>
 <li>统计：统计前k个距离数据中各个标签对应的个数，选出个数最多的那个标签，即为该样本点预测的结果。</li>
@@ -504,7 +504,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +515,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

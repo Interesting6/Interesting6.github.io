@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/03/17/python-%E7%9A%84%E9%97%AD%E5%8C%85%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/</loc>
+    
+    <lastmod>2018-03-17T10:10:55.183Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
+    
+    <lastmod>2018-03-14T10:11:02.944Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
     
     <lastmod>2018-03-13T16:37:27.423Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://yoursite.com/2018/02/27/new-post/</loc>
     
     <lastmod>2018-03-13T14:58:29.904Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
-    
-    <lastmod>2018-03-13T14:44:19.063Z</lastmod>
     
   </url>
   
