@@ -68,9 +68,9 @@
       <category term="python" scheme="http://yoursite.com/categories/math/python/"/>
     
     
-      <category term="fun math" scheme="http://yoursite.com/tags/fun-math/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="fun math" scheme="http://yoursite.com/tags/fun-math/"/>
     
   </entry>
   
