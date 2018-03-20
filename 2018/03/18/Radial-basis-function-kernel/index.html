@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Treamy&#39;s website">
 <meta property="og:description" content="高斯径向基函数简介：在机器学习中，（高斯）径向基函数核（英语：Radial basis function kernel），或称为RBF核，是一种常用的核函数。它是支持向量机分类中最为常用的核函数。—— 维基百科 高斯径向基函数高斯径向基函数公式如下：$$K(x_1,x_2)=\exp{(-\frac{\parallel x_1-x_2 \parallel^2 }{2\sigma^2})}, \si">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T11:27:01.919Z">
+<meta property="og:updated_time" content="2018-03-18T14:03:02.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Radial basis function kernel">
 <meta name="twitter:description" content="高斯径向基函数简介：在机器学习中，（高斯）径向基函数核（英语：Radial basis function kernel），或称为RBF核，是一种常用的核函数。它是支持向量机分类中最为常用的核函数。—— 维基百科 高斯径向基函数高斯径向基函数公式如下：$$K(x_1,x_2)=\exp{(-\frac{\parallel x_1-x_2 \parallel^2 }{2\sigma^2})}, \si">
@@ -392,6 +392,9 @@
 <h4 id="为什么核函数能映射到高维空间呢？"><a href="#为什么核函数能映射到高维空间呢？" class="headerlink" title="为什么核函数能映射到高维空间呢？"></a>为什么核函数能映射到高维空间呢？</h4><p>先考虑普通的多项式核函数：$K(x,y)=(x^T\cdot y+m)^p$,其中$x,y\in \mathbb{R}^n$，多项式参数$p,m\in \mathbb{R}$<br>考虑$x=(x_1,x_2),y=(y_1,y_2),m=0,p=2$，即$K(x,y)=(x^T\cdot y)^2=x_1^2y_1^2+2x_1x_2y_1y_2+x_2^2y_2^2$<br>现在回到之前的映射$k(x,y)=\left \langle \Phi(x),\Phi(y)\right \rangle$，并取$\Phi(x)=(x_1^2,\sqrt{2}x_1x_2,x_2^2)$<br>则有$k(x,y)=\left \langle \Phi(x),\Phi(y)\right \rangle=x_1^2y_1^2+2x_1x_2y_1y_2+x_2^2y_2^2=(x^T\cdot y)^2=K(x,y)$<br>这就是前面的$K(x,y)$，因此，该核函数就将2维映射到了3维空间。</p>
 <h4 id="径向基核又为什么能够映射到无限维空间呢？"><a href="#径向基核又为什么能够映射到无限维空间呢？" class="headerlink" title="径向基核又为什么能够映射到无限维空间呢？"></a>径向基核又为什么能够映射到无限维空间呢？</h4><p>看完了普通多项式核函数由2维向3维的映射，再来看看高斯径向基函数会把2维平面上一点映射到多少维。<br>$$\begin{eqnarray}<br>K(x,y) &amp; = &amp; \exp(| x_1-x_2 |^2 ) \<br>&amp; = &amp; \exp(-(x_1-y_1)^2-(x_2-y_2)^2) \<br>&amp; = &amp; \exp(-x_1^2+2x_1y_1-y_1^2-x_2^2+2x_2y_2-y_2^2) \<br>&amp; = &amp; \exp(-|x|^2)\exp(-|y|^2)\exp(2x^Ty)\<br>\end{eqnarray}$$<br>将最后一项泰勒展开你就会恍然大悟：<br>$$K(x,y)=\exp(-|x|^2)\exp(-|y|^2)\sum_{n=0}^{\infty}\frac{(2x^Ty)^n}{n!}$$</p>
 <p>再具体一点：<br>高斯核是这样定义的：$K(x_1,x_2)=\exp{(-\frac{\parallel x_1-x_2 \parallel^2 }{2\sigma^2})}, \sigma&gt;0$<br>尽管我不会解释它（但相信我）高斯核可以简单修正为这个样子：$K(x_1,x_2)=\exp(-\frac{x_1\cdot x_2}{\sigma^2}),\sigma&gt;0$，这里$x_1\cdot x_2$可解释为内积。<br>再用泰勒展开就会得到$K(x_1,x_2)=\sum_{n=0}^{\infty}\frac{(x_1\cdot x_2)^n}{\sigma^nn!}$<br>求和号里面的元素是不是看起来很熟悉呢？<br>没错，这就是一个n次多项式核。因为每一个多项式核都将一个向量投影到更高维的空间中，因此高斯核是那些$degree\geq0$的<strong>多项式核</strong>的<strong>组合</strong>，所以我们说高斯核是投影到无穷维空间中。</p>
+<ul>
+<li>参考<br>Quora上的问题：<a href="https://www.quora.com/Machine-Learning/Why-does-the-RBF-radial-basis-function-kernel-map-into-infinite-dimensional-space-mentioned-many-times-in-machine-learning-lectures" target="_blank" rel="noopener">https://www.quora.com/Machine-Learning/Why-does-the-RBF-radial-basis-function-kernel-map-into-infinite-dimensional-space-mentioned-many-times-in-machine-learning-lectures</a></li>
+</ul>
 <h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>初学者使用markdown与LaTeX的语法真不适应啊，就写到这里吧，写篇博客太累了orz饭都没吃，关于RBF神经网络的话，以后用到再来讲吧，累死我惹。<br>如有疑问，欢迎咨询，联系方式见“关于”页面。</p>
 
       
