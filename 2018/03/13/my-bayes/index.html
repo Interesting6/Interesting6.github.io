@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Treamy&#39;s website">
 <meta property="og:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T16:37:27.423Z">
+<meta property="og:updated_time" content="2018-03-23T08:14:51.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my_bayes">
 <meta name="twitter:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
@@ -831,6 +831,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

@@ -3,36 +3,9 @@
 
 
     
-    
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
-    <lastmod>2018-03-20T11:48:36.385Z</lastmod>
-    <data>
-        <display>
-        <title>my_knn</title>
-        <pubTime>2018-03-13T13:58:30.000Z</pubTime>
-        
-        <tag>machine_leanring</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
-          
-             
-              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://yoursite.com/2018/03/18/Radial-basis-function-kernel/</loc>
-    <lastmod>2018-03-18T14:03:02.306Z</lastmod>
+    <lastmod>2018-03-23T08:15:06.901Z</lastmod>
     <data>
         <display>
         <title>Radial basis function kernel</title>
@@ -56,6 +29,57 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
+    <lastmod>2018-03-23T08:14:51.626Z</lastmod>
+    <data>
+        <display>
+        <title>my_bayes</title>
+        <pubTime>2018-03-13T13:09:38.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
+    <lastmod>2018-03-23T08:14:41.549Z</lastmod>
+    <data>
+        <display>
+        <title>my_knn</title>
+        <pubTime>2018-03-13T13:58:30.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://yoursite.com/2018/03/17/python-%E7%9A%84%E9%97%AD%E5%8C%85%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/</loc>
     <lastmod>2018-03-17T10:10:55.183Z</lastmod>
     <data>
@@ -74,31 +98,6 @@
           
              
               <breadCrumb title="python" url="http://yoursite.com/categories/math/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
-    <lastmod>2018-03-13T16:37:27.423Z</lastmod>
-    <data>
-        <display>
-        <title>my_bayes</title>
-        <pubTime>2018-03-13T13:09:38.000Z</pubTime>
-        
-        <tag>machine_leanring</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
-          
-             
-              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
           
         </display>
     </data>
