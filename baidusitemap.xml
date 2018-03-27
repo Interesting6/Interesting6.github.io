@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/27/my-decision-tree-id3/</loc>
+    <lastmod>2018-03-27T05:40:25.999Z</lastmod>
+    <data>
+        <display>
+        <title>my decision tree id3</title>
+        <pubTime>2018-03-27T02:41:18.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/18/Radial-basis-function-kernel/</loc>
     <lastmod>2018-03-23T08:15:06.901Z</lastmod>
     <data>
@@ -87,9 +112,9 @@
         <title>python 的闭包、装饰器</title>
         <pubTime>2018-03-17T09:33:14.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>fun math</tag>
+         
+        <tag>python</tag>
          
          
            
