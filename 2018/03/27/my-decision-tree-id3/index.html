@@ -103,7 +103,9 @@
 <meta property="og:image" content="http://yoursite.com/images/treeid3.jpg">
 <meta property="og:image" content="http://yoursite.com/images/tree2.png">
 <meta property="og:image" content="http://yoursite.com/images/tree3.png">
-<meta property="og:updated_time" content="2018-03-27T05:45:24.615Z">
+<meta property="og:image" content="http://yoursite.com/images/alipay.jpg">
+<meta property="og:image" content="http://yoursite.com/images/wechatpay.jpg">
+<meta property="og:updated_time" content="2018-03-27T06:10:43.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my decision tree id3">
 <meta name="twitter:description" content="前言  本文主要讲述一下决策树的基本算法–ID3生成决策树算法。一开始看例子的时候，我觉得决策树好简单呀，应该实现起来用pandas也能像实现朴素贝叶斯一样容易实现，可是到实践的时候才发现，这个实现起来也好难啊orz。刚开始尝试直接通过算gini指数用CART算法生成树，但发现当两个的gini指数相同时我的程序就没法择优选择了。。。这个还有待改进。。最后参考了一下机器学习实战这本书把id3生成和可">
@@ -454,6 +456,11 @@
 <p>得出的决策树如下：<br><img src="/images/tree3.png" alt="image"></p>
 <h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>由于本文只给出了ID3算法生成决策树和决策树的可视化，日后我将继续给出C4.5的生成决策树算法、决策树的减枝问题与及CART分类和回归树的构造。然后我们还可以把它拓宽，引入集成学习的随机森林。</p>
 <p>作者时间精力有限，我就先写到这里啦。如有疑问，记得联系我哦。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>《统计学习方法》李航 著  清华大学出版社<br>《机器学习实战》Peter Harrington 著 人民邮电出版社</p>
+</blockquote>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>如果你觉得本文对你有帮助的话，不如给作者一点打赏吧~</p>
+<figure class="half"><br>    <img src="/images/alipay.jpg"><br>    <img src="/images/wechatpay.jpg"><br></figure>
 
       
     </div>
@@ -659,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心思想"><span class="nav-number">2.2.</span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举个栗子"><span class="nav-number">2.4.</span> <span class="nav-text">举个栗子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树的学习"><span class="nav-number">2.5.</span> <span class="nav-text">决策树的学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征选择"><span class="nav-number">2.5.1.</span> <span class="nav-text">特征选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树的生成"><span class="nav-number">2.5.2.</span> <span class="nav-text">决策树的生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树的可视化"><span class="nav-number">2.5.3.</span> <span class="nav-text">决策树的可视化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">2.6.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-number">3.</span> <span class="nav-text">后续</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心思想"><span class="nav-number">2.2.</span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举个栗子"><span class="nav-number">2.4.</span> <span class="nav-text">举个栗子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树的学习"><span class="nav-number">2.5.</span> <span class="nav-text">决策树的学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征选择"><span class="nav-number">2.5.1.</span> <span class="nav-text">特征选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树的生成"><span class="nav-number">2.5.2.</span> <span class="nav-text">决策树的生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树的可视化"><span class="nav-number">2.5.3.</span> <span class="nav-text">决策树的可视化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">2.6.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-number">3.</span> <span class="nav-text">后续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
 
           </div>
