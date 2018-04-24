@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/03/27/my-decision-tree-id3/</loc>
+    <loc>http://yoursite.com/2018/04/23/logistic-regression/</loc>
     
-    <lastmod>2018-03-27T06:56:09.575Z</lastmod>
+    <lastmod>2018-04-24T07:09:59.976Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/02/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/</loc>
+    
+    <lastmod>2018-04-24T06:54:31.879Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/15/my-kmeans/</loc>
+    
+    <lastmod>2018-04-15T12:58:05.168Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/images/test.html</loc>
     
-    <lastmod>2018-03-27T06:46:00.686Z</lastmod>
+    <lastmod>2018-04-01T11:56:42.937Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/27/my-decision-tree-id3/</loc>
+    
+    <lastmod>2018-03-27T06:56:09.575Z</lastmod>
     
   </url>
   
