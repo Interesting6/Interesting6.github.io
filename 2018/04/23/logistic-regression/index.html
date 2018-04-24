@@ -100,7 +100,7 @@
 <meta property="og:description" content="1 逻辑斯蒂分布(logistic distribution)定义：设X是连续随机变量，X服从logistic分布是指X具有下列分布函数和密度函数： $$ F = P(X \leq x)=\frac{1}{1+exp(-\frac{(x-\mu)}{\gamma})} $$$$ f= F’(x) = \frac{exp(-\frac{(x-\mu)}{\gamma})}{\gamma[1+exp(">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://note.youdao.com/favicon.ico">
-<meta property="og:updated_time" content="2018-04-24T12:46:13.016Z">
+<meta property="og:updated_time" content="2018-04-24T15:38:51.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="logistic regression">
 <meta name="twitter:description" content="1 逻辑斯蒂分布(logistic distribution)定义：设X是连续随机变量，X服从logistic分布是指X具有下列分布函数和密度函数： $$ F = P(X \leq x)=\frac{1}{1+exp(-\frac{(x-\mu)}{\gamma})} $$$$ f= F’(x) = \frac{exp(-\frac{(x-\mu)}{\gamma})}{\gamma[1+exp(">
@@ -401,7 +401,15 @@
 <h1 id="3-模型参数估计"><a href="#3-模型参数估计" class="headerlink" title="3 模型参数估计"></a>3 模型参数估计</h1><p>对于给定的训练数据集$T={(x_1,y_1),(x_2,y_2),…,(x_N,y_N)}$，其中$x_i\in R^n$，$y_i\in {0,1 }$，可以应用<strong>极大似然估计法</strong>估计模型参数，从而得到逻辑斯蒂回归模型。</p>
 <p>设：$P(y=1\mid x)=\pi(x)$，$P(y=0\mid x)=1-\pi(x)$则似然函数为：<br>$$\prod_{i=0}^N [\pi(x_i)]^{y_i}[1-\pi(x_i)]^{1-y_i}$$<br>对数似然函数为：<br>$$<br>\begin{aligned}<br>L(\omega,b)&amp;=\sum_{i=0}^N [y_i\ln(\pi(x_i))+(1-y_i)\ln(1-\pi(x_i))] \<br>&amp;= \sum_{i=0}^N [y_i\ln\frac{\pi(x_i)}{1-\pi(x_i)}+\ln(1-\pi(x_i))]  \<br>&amp;=\sum_{i=0}^N \left [ y_i(\omega^\top x+b) -\ln \left ( 1+ exp(\omega^\top x+b) \right )\right ]<br>\end{aligned}$$<br>这样，问题就变成了以对数似然函数为目标函数的最优化问题，逻辑斯蒂回归学习中通常采用的方法是<strong>梯度下降法</strong>及<strong>牛顿法</strong>。</p>
 <h1 id="4-梯度下降法求解"><a href="#4-梯度下降法求解" class="headerlink" title="4 梯度下降法求解"></a>4 梯度下降法求解</h1><p>利用梯度下降(上升)求解对数似然函数：$L(\omega,b)$<br>因为要使得似然函数最大，我们使用<strong>梯度上升法</strong>。<br>为了计算方便，我们将权值向量和输入向量加以<strong>扩充</strong>，仍记作$\omega,x$，即$\omega=(\omega^{(1)},\omega^{(2)},…,\omega^{(n)},b),\;x=(x^{(1)},x^{(2)},…,x^{(n)},1)$，这时$\omega_{new}^\top x_{new}=\omega_{old}^\top x_{old}+b_{old}$；<br>于是有$$l(\omega)=\sum_{i=0}^N \left [ y_i(\omega^\top x) -\ln \left ( 1+ exp(\omega^\top x) \right )\right ]$$<br>先求各个偏导数：<br>$$\begin{aligned}<br>\frac{\partial l(\omega)}{\partial \omega_j}&amp;=\frac{\partial }{\partial \omega_j}\left (<br> \sum_{i=0}^N \left [ y_i(\omega^\top x) -\ln \left ( 1+ exp(\omega^\top x) \right )\right ]\right ) \<br> &amp;= \sum_{i=0}^N \left [ y_i x_i^{(j)} - \frac{exp(w^\top x_i)}{1+exp(w^\top x_i)} x_i^{(j)}\right ]  \<br> &amp;= \sum_{i=0}^N  \left (  y_i +  \frac{exp(w^\top x_i)}{1+exp(w^\top x_i)} \right ) x_i^{(j)}  \<br> &amp;= \sum_{i=0}^N ( y_i +  \pi(x_i)  ) x_i^{(j)}<br>\end{aligned}$$</p>
-<p>得到参数的迭代公式：<br>$$\omega_j = \omega +\lambda \cdot \sum_{i=0}^N ( y_i +  \pi(x_i)  ) x_i^{(j)} $$</p>
+<p>得到参数的迭代公式：<br>$$\omega_{k+1}^{(j)} = \omega_{k}^{(j)} +\lambda \cdot \sum_{i=0}^N ( y_i +  \pi(x_i)  ) x_i^{(j)} $$<br>令$$s_k=(s_k^{(0)},s_k^{(1)},…,s_k^{(n)}),s_k^{(i)}= y_i +  \pi_k(x_i) $$<br>则<br>$$\begin{aligned}<br>\triangledown l(\omega_{k}) &amp;= ( \frac{\partial l(\omega_{k})}{\partial \omega_{k}^{(0)}}, \frac{\partial l(\omega_{k})}{\partial \omega_{k}^{(1)}},…, \frac{\partial l(\omega_{k})}{\partial \omega_{k}^{(n)}} ) \<br> &amp;= [\sum_{i=0}^N ( y_i +  \pi_k(x_i)  ) x_i^{(j)}],j=0,1,…,n \<br>&amp;=[\sum_{i=0}^N s_k^{(i)} x_i^{(j)}] \<br>&amp;=x\cdot s^\top \<br>\end{aligned}$$</p>
+<p>即$$\omega_{k+1} = \omega_{k} +\lambda \triangledown l(\omega_{k})  = \omega_{k} +\lambda \cdot (x\cdot s^\top) $$</p>
+<p>求解一维搜索<br>$$l(\omega_{k}+\lambda_k p_k)=\min_{\lambda \geqslant 0}l(\omega_{k}+\lambda \cdot P^{(k)})$$</p>
+<p><strong>得</strong><br>$$\lambda_k=\frac{ \triangledown l(\omega_{k})^\top \triangledown l(\omega_{k}) }{\triangledown l(\omega_{k})^\top H(\omega_{k}) \triangledown l(\omega_{k})} $$</p>
+<p>其中</p>
+<p>$$\frac{\partial l(\omega_{k})}{\partial \omega_{k}^{(j)}} = \sum_{i=0}^N ( y_i +  \pi_k(x_i)  ) x_i^{(j)}=  \sum_{i=0}^N s_k^{(i)} x_i^{(j)}$$</p>
+<p>$$\frac{\partial^2 l(\omega_{k})}{\partial \omega_{k}^{(p)}\partial \omega_{k}^{(q)}} = \sum_{i=0}^N \pi_k’(x_i)  (- x_i^{(p)} x_i^{(q)})  $$</p>
+<p>$$\pi_k(x_i) =  \frac{exp(w_k^\top x_i)}{1+exp(w_k^\top x_i)}= \frac{1}{1+exp(-w_k^\top x_i)} $$<br>$$\pi_k’(x_i) =  \frac{exp(-w_k^\top x_i)}{(1+exp(-w_k^\top x_i))^2}$$</p>
+<p>$$H(\omega_{k})=\begin{bmatrix}<br>\frac{\partial^2 l(\omega_{k})}{\partial \omega_{k}^{(p)}\partial \omega_{k}^{(q)}}<br>\end{bmatrix} ;p,q \in {1,2,..,n}$$</p>
 <h1 id="5-模型的优缺点"><a href="#5-模型的优缺点" class="headerlink" title="5 模型的优缺点"></a>5 模型的优缺点</h1><p>缺点：</p>
 <ul>
 <li>逻辑回归需要大样本量，因为最大似然估计在低样本量的情况下不如最小二乘法有效。</li>
