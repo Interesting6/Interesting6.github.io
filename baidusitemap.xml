@@ -4,33 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/04/23/logistic-regression/</loc>
-    <lastmod>2018-04-24T16:37:47.714Z</lastmod>
-    <data>
-        <display>
-        <title>logistic regression</title>
-        <pubTime>2018-04-23T14:11:30.000Z</pubTime>
-        
-        <tag>machine_leanring</tag>
-         
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
-          
-             
-              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/04/02/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/</loc>
-    <lastmod>2018-04-24T12:56:30.919Z</lastmod>
+    <lastmod>2018-04-25T11:03:16.842Z</lastmod>
     <data>
         <display>
         <title>梯度下降法</title>
@@ -47,6 +22,31 @@
           
              
               <breadCrumb title="algorithm" url="http://yoursite.com/categories/math/algorithm/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/23/logistic-regression/</loc>
+    <lastmod>2018-04-25T10:09:24.533Z</lastmod>
+    <data>
+        <display>
+        <title>logistic regression</title>
+        <pubTime>2018-04-23T14:11:30.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
           
         </display>
     </data>
