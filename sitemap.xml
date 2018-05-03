@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/03/27/my-decision-tree-id3/</loc>
+    <loc>http://yoursite.com/2018/03/27/decision-tree-id3/</loc>
     
     <lastmod>2018-04-25T11:20:45.726Z</lastmod>
     
@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/15/my-kmeans/</loc>
+    <loc>http://yoursite.com/2018/04/15/Kmeans/</loc>
     
     <lastmod>2018-04-15T12:58:05.168Z</lastmod>
     
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
+    <loc>http://yoursite.com/2018/03/13/Naive-Bayes/</loc>
     
     <lastmod>2018-03-23T08:14:51.626Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
+    <loc>http://yoursite.com/2018/03/13/Knn/</loc>
     
     <lastmod>2018-03-23T08:14:41.549Z</lastmod>
     

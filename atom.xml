@@ -47,8 +47,8 @@
   
   <entry>
     <title>my kmeans</title>
-    <link href="http://yoursite.com/2018/04/15/my-kmeans/"/>
-    <id>http://yoursite.com/2018/04/15/my-kmeans/</id>
+    <link href="http://yoursite.com/2018/04/15/Kmeans/"/>
+    <id>http://yoursite.com/2018/04/15/Kmeans/</id>
     <published>2018-04-15T12:58:05.000Z</published>
     <updated>2018-04-15T12:58:05.168Z</updated>
     
@@ -98,8 +98,8 @@
   
   <entry>
     <title>my decision tree id3</title>
-    <link href="http://yoursite.com/2018/03/27/my-decision-tree-id3/"/>
-    <id>http://yoursite.com/2018/03/27/my-decision-tree-id3/</id>
+    <link href="http://yoursite.com/2018/03/27/decision-tree-id3/"/>
+    <id>http://yoursite.com/2018/03/27/decision-tree-id3/</id>
     <published>2018-03-27T02:41:18.000Z</published>
     <updated>2018-04-25T11:20:45.726Z</updated>
     
@@ -212,8 +212,8 @@
   
   <entry>
     <title>my_knn</title>
-    <link href="http://yoursite.com/2018/03/13/my-knn/"/>
-    <id>http://yoursite.com/2018/03/13/my-knn/</id>
+    <link href="http://yoursite.com/2018/03/13/Knn/"/>
+    <id>http://yoursite.com/2018/03/13/Knn/</id>
     <published>2018-03-13T13:58:30.000Z</published>
     <updated>2018-03-23T08:14:41.549Z</updated>
     
@@ -241,8 +241,8 @@
   
   <entry>
     <title>my_bayes</title>
-    <link href="http://yoursite.com/2018/03/13/my-bayes/"/>
-    <id>http://yoursite.com/2018/03/13/my-bayes/</id>
+    <link href="http://yoursite.com/2018/03/13/Naive-Bayes/"/>
+    <id>http://yoursite.com/2018/03/13/Naive-Bayes/</id>
     <published>2018-03-13T13:09:38.000Z</published>
     <updated>2018-03-23T08:14:51.626Z</updated>
     
