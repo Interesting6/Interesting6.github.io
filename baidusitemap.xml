@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/03/27/decision-tree-id3/</loc>
+    <loc>http://yoursite.com/2018/03/27/my-decision-tree-id3/</loc>
     <lastmod>2018-04-25T11:20:45.726Z</lastmod>
     <data>
         <display>
@@ -79,7 +79,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/04/15/Kmeans/</loc>
+    <loc>http://yoursite.com/2018/04/15/my-kmeans/</loc>
     <lastmod>2018-04-15T12:58:05.168Z</lastmod>
     <data>
         <display>
@@ -130,7 +130,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/03/13/Naive-Bayes/</loc>
+    <loc>http://yoursite.com/2018/03/13/my-bayes/</loc>
     <lastmod>2018-03-23T08:14:51.626Z</lastmod>
     <data>
         <display>
@@ -155,7 +155,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/03/13/Knn/</loc>
+    <loc>http://yoursite.com/2018/03/13/my-knn/</loc>
     <lastmod>2018-03-23T08:14:41.549Z</lastmod>
     <data>
         <display>
@@ -188,9 +188,9 @@
         <title>python 的闭包、装饰器</title>
         <pubTime>2018-03-17T09:33:14.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>fun math</tag>
+         
+        <tag>python</tag>
          
          
            
