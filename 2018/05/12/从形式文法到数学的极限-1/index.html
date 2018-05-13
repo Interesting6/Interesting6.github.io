@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
+<meta name="description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
 <meta name="keywords" content="machine_leanring,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my_bayes">
-<meta property="og:url" content="http://yoursite.com/2018/03/13/my-bayes/index.html">
+<meta property="og:title" content="从形式文法到数学的极限(1)">
+<meta property="og:url" content="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/index.html">
 <meta property="og:site_name" content="Treamy&#39;s website">
-<meta property="og:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
+<meta property="og:description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T08:14:51.626Z">
+<meta property="og:updated_time" content="2018-05-13T15:24:44.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my_bayes">
-<meta name="twitter:description" content="前言本周一晚上老师讲到了naive bayes（朴素贝叶斯分类器），于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。 本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了dict数据结构，第一层key为标签，va">
+<meta name="twitter:title" content="从形式文法到数学的极限(1)">
+<meta name="twitter:description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/13/my-bayes/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/"/>
 
 
 
 
 
-  <title>my_bayes | Treamy's website</title>
+  <title>从形式文法到数学的极限(1) | Treamy's website</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/my-bayes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Treamy">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">my_bayes</h1>
+          <h1 class="post-title" itemprop="name headline">从形式文法到数学的极限(1)</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T21:09:38+08:00">
-                2018-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T22:38:27+08:00">
+                2018-05-12
               </time>
             
 
@@ -386,32 +386,34 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本周一晚上老师讲到了<code>naive bayes（朴素贝叶斯分类器）</code>，于是自己用python来实现了一下。现在这个脚本对于比较大的数据可能会计算的比较慢，还需要以后慢慢再研究一下里面的加速。</p>
-<p>本程序主要利用了pandas里dataframe的groupby分组函数，大大的方便了对数据的统计。对于条件概率，有不同的标签，不同的特征和特征里的不同数据，我们采用了<code>dict</code>数据结构，第一层key为标签，value是一个新的dict；第二层（前面那个新的dict）的key为特征，value是一个Series或者字典；第三层的key/index为特征的取值，value为频数/概率。、、（虽然看起来比较拗口，但我感觉这样能够比较清晰的分清了各个条件概率了，如果你有更好的方法，欢迎留言给我，谢谢。）</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><blockquote>
-<ul>
-<li>输入：训练数据集及其标签集，要预测的数据集</li>
-<li>统计各标签出现的频数，并拉普拉斯平滑，计算先验概率</li>
-<li>统计在各标签下各个特征的频数，并拉普拉斯平滑，计算条件概率</li>
-<li>查找要预测数据集各特征在不同标签下的条件概率和先验概率相乘得到（半）后验概率</li>
-<li>对半后验概率进行从大到小排序，选出最大值对应的标签，即为预测结果</li>
-<li>实例化测试<br>ps：这里半后验概率为我自己的定义：$P(Y_j) *\prod_{i=1}^N P(A_i|Y_j) ; i:1\to n_{feature}; j:1\to n_{label}$</li>
-</ul>
-</blockquote>
-<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>本程序主要分为一下部分：</p>
-<blockquote>
-<ul>
-<li>定义一个bayes分类器（类）</li>
-<li>计算先验概率</li>
-<li>计算所有条件概率</li>
-<li>进行调用训练</li>
-<li>对测试数据进行预测</li>
-<li>实例化测试</li>
-</ul>
-</blockquote>
-<p>以上各对应之下的各个函数：（废话不多说，直接上代码）</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">my_naive_bayes</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, df)</span>:</span></span><br><span class="line">        super(my_naive_bayes, self).__init__()</span><br><span class="line">        self.df = df</span><br><span class="line">        self.X_train = df.iloc[:,:<span class="number">-1</span>]</span><br><span class="line">        self.y_train = df.iloc[:,<span class="number">-1</span>]</span><br><span class="line">        self.label_set = set(self.y_train)</span><br><span class="line">        self.features = df.columns[:<span class="number">-1</span>]</span><br><span class="line">        self.label_name = df.columns[<span class="number">-1</span>]</span><br><span class="line">        self.feature_dict = &#123;&#125;</span><br><span class="line">        self.n_sample = len(df)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_prior_p</span><span class="params">(self, g)</span>:</span></span><br><span class="line">        n = len(g)</span><br><span class="line">        prior_p = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> label <span class="keyword">in</span> self.label_set:</span><br><span class="line">            prior_p[label] = g.size()[label] / self.n_sample</span><br><span class="line">        <span class="keyword">return</span> prior_p</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_cond_p</span><span class="params">(self, g)</span>:</span></span><br><span class="line">        cond_p = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> label, group <span class="keyword">in</span> g:</span><br><span class="line">            cond_p[label] = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> feature <span class="keyword">in</span> self.features:</span><br><span class="line">                counts = group[feature].value_counts()</span><br><span class="line">                cond_p[label][feature] = counts / sum(counts)</span><br><span class="line">        <span class="keyword">return</span> cond_p</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, )</span>:</span></span><br><span class="line">        <span class="keyword">for</span> feature <span class="keyword">in</span> self.features:</span><br><span class="line">            self.feature_dict[feature] = set(self.df[feature])</span><br><span class="line">        g = self.df.groupby(self.label_name)</span><br><span class="line"></span><br><span class="line">        self.prior_p = self.get_prior_p(g)</span><br><span class="line">        self.cond_p = self.get_cond_p(g)</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict_one</span><span class="params">(self, test_X)</span>:</span></span><br><span class="line">        semi_post_p = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> label <span class="keyword">in</span> self.label_set:</span><br><span class="line">            temp = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> feature <span class="keyword">in</span> self.features:</span><br><span class="line">                temp = temp * self.cond_p[label][feature][test_X[feature]]</span><br><span class="line">            semi_post_p[label] = self.prior_p[label] * temp</span><br><span class="line">        <span class="keyword">return</span> max(semi_post_p, key=semi_post_p.get)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	df = pd.read_excel(<span class="string">"bayes_data.xlsx"</span>,index_col=<span class="string">"index"</span>)</span><br><span class="line">	<span class="comment"># n = len(df)</span></span><br><span class="line">	<span class="comment"># train_n = int(n*0.6)</span></span><br><span class="line">	<span class="comment"># train_df = df[:train_n]</span></span><br><span class="line">	<span class="comment"># test_df = df[train_n:]</span></span><br><span class="line">	bayes = my_naive_bayes(df)</span><br><span class="line">	bayes = bayes.train()</span><br><span class="line">	test_x = df.loc[<span class="number">6</span>]</span><br><span class="line">	label = bayes.predict_one(test_x)</span><br><span class="line">	print(label)</span><br></pre></td></tr></table></figure>
-<h1 id="最后，好好学习，天天向上！"><a href="#最后，好好学习，天天向上！" class="headerlink" title="最后，好好学习，天天向上！"></a>最后，好好学习，天天向上！</h1>
+        <h1 id="从形式文法到数学的极限-1-乔姆斯基和他的形式文法"><a href="#从形式文法到数学的极限-1-乔姆斯基和他的形式文法" class="headerlink" title="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法"></a>从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法</h1><p><em>诺姆·乔姆斯基（Noam Chomsky）</em>，美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。</p>
+<h2 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h2><p>在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算机在编译时读懂你写的代码，一个适当的语法分析器是必不可少的。</p>
+<p>每种语言都有自己不同的语法，语法分析器按照各种语言定义的语法，逐字符地将源代码解析成一棵语法树。<br>而用来描述这种语法的工具，就是乔姆斯基的形式文法。</p>
+<h2 id="巴克斯-瑙尔范式"><a href="#巴克斯-瑙尔范式" class="headerlink" title="巴克斯-瑙尔范式"></a>巴克斯-瑙尔范式</h2><p>要定义一套语法很简单，下面是一组（简陋的）示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;sentence&gt; := [ &lt;subject&gt; ] &lt;predicate&gt; &#123; &lt;object&gt; &#125;</span><br><span class="line">&lt;subject&gt; := &lt;nominal-phrase&gt;</span><br><span class="line">&lt;object&gt; := &lt;nominal-phrase&gt;</span><br><span class="line">&lt;nominal-phrase&gt; := &lt;quantifier&gt; &lt;noun&gt;</span><br><span class="line">&lt;quantifier&gt; := &lt;article&gt; | &lt;number&gt;</span><br><span class="line">&lt;article&gt; := &quot;a&quot; | &quot;an&quot; | &quot;the&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>如你所见，所有的字面量都很直观、浅显，只是有几个符号需要解释一下：</p>
+<pre><code>每条语法的最左项是它的名字，用尖括号括起来，跟随一个冒号和一个等号，表示定义；
+在语法定义里引用其他语法，也用尖括号括起要引用的名字即可；
+若要表示出现与否均可的选项，用方括号括起，比如 &lt;sentence&gt; 里的 &lt;subject&gt;；
+若要表示出现任意次数（包括 0 次），用大括号括起，比如 &lt;sentence&gt; 里的 &lt;object&gt;；
+若要表示多个模式里任选，用竖杠分隔开；
+若要表示欲匹配的字符串，用双引号括起。
+</code></pre><p>这种书写记号是荷兰学者<em>瑙尔（Naur）</em>最先提出的，后经美国学者<em>巴克斯（Bakus）</em>完善，形成了现在的<strong>巴克斯-瑙尔范式</strong>。乔姆斯基在他自己的形式文法里，也采用了类似<strong>B-N 范式</strong>的书写方式。</p>
+<p>他把所有出现在尖括号里的那些名称称作“非终结符”，意为可以继续向下分解成更小的单位；将出现在引号里的字符串称作“终结符”，意为<strong>最小单位</strong>，不可继续分解。在语言学中，通常用大写字母表示非终结符，而用小写字母表示终结符。</p>
+<h2 id="语法层级"><a href="#语法层级" class="headerlink" title="语法层级"></a>语法层级</h2><p>乔姆斯基给他的文法根据不同的规则划分了不同的等级，以表示它们所描述语言的<code>“自由”</code>程度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 型语言：任意语法所描述的语言都是 0 型的</span><br><span class="line">上下文有关（1 型）语言：对于所有语法都有 aAb := cBd 形式的语言，称之为上下文有关语言</span><br><span class="line">上下文无关（2 型）语言：对于所有语法都有 A := aBb 形式的语言，称之为上下文无关语言</span><br><span class="line">正则（3 型）语言：对于所有语法都有 A := aB 或 A := Ba 形式的语言，称之为正则语言</span><br></pre></td></tr></table></figure></p>
+<p>可以看出，从上到下对语法的限制愈发增多，语言的多样性也随之减少。对于 1 和 2 型语言的命名中的“有关”、“无关”，是指非终结符的解析是否受其邻接的终结符影响。</p>
+<p>大部分自然语言都是上下文有关语言。比如英语中<code>&quot;I broke a window&quot;</code>和<code>&quot;The window broke&quot;</code>中的<code>&quot;broke&quot;</code>便是受到宾语有无的影响而分别成为了及物和不及物动词。</p>
+<p>上下文无关语言主要被用于设计程序，这是因为解析 2 型语言时不需考虑语法结构所处的上下文，其语法解析器相对容易实现。</p>
+<p>可以看出，正则语言的表达能力极为受限，因为其解析过程只能在每一步中增添一前缀或后缀。对于总是增加前缀的正则语言，我们称为左线性语言，反之称为右线性语言。事实上，对这种高度受限的语言，人们已经设计出来一些强大的用来解析它们的工具了，比如正则表达式。</p>
+<h2 id="语法推导"><a href="#语法推导" class="headerlink" title="语法推导"></a>语法推导</h2><p>对于任意一组语法和一个指定的非终结符，总是可以根据其中的规则将这个非终结符扩展成一个终结符串（可能是无限的）。<br>比如对于这条（正则）文法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A&gt; := &quot;a&quot; &lt;A&gt; | &quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>不断地将 <code>&lt;A&gt;</code>替换为<code>&quot;a&quot;</code>，便可以推出下列字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, aa, aaa, aaaa, ...</span><br></pre></td></tr></table></figure></p>
+<p>如果一个字符串（包括终结符和非终结符）能由某组语法推导过来，就说这个字符串规约到这组语法。</p>
+<h2 id="数学推理"><a href="#数学推理" class="headerlink" title="数学推理"></a>数学推理</h2><p>在数学上，我们把最开始给定的那组语法叫做“公理”，把由所有终结符可能构成的字符串称作“命题”。所有的公理都是公认为真的命题，比如欧式几何里的“过两点必有一条直线”。</p>
+<p>对于那些可以规约到公理的命题，我们说它们是也是真的，并称它们为“定理”。而公理到定理的推导过程，自然就叫“证明”。</p>
+<p>所有的公理都可以在自己前面加上一个终结符“非”，来变成自己的反命题。对于所有能规约到公理的反命题的命题，我们说它们是假的。这样，所有命题就有了自己的真假，或者更专业一点地，叫它们“真值”。</p>
+<p>对于任意的数学命题，只需要对它们进行规约，看看是否能回到最初的公理即可知道它们正确与否了。</p>
+<p>这似乎看上去太美好了，你怎么能保证所有命题都一定能规约到公理或它们的反命题上去呢？有没有可能存在一个命题，它根本就不可能通过有限次规约，得到最初的公理呢？</p>
+<p>还真的有一个神人挖到了这么一个大坑，直接否定了数学的完备性（即所有命题均能证明或证伪）。至于这人是谁，以及这坑怎么挖的，请看下回分解。</p>
+
       
     </div>
     
@@ -494,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/07/18-03-07/" rel="next" title="18_03_07">
-                <i class="fa fa-chevron-left"></i> 18_03_07
+              <a href="/2018/04/23/logistic-regression/" rel="next" title="logistic regression">
+                <i class="fa fa-chevron-left"></i> logistic regression
               </a>
             
           </div>
@@ -503,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/13/my-knn/" rel="prev" title="my_knn">
-                my_knn <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -649,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释"><span class="nav-number">3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后，好好学习，天天向上！"><span class="nav-number">5.</span> <span class="nav-text">最后，好好学习，天天向上！</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从形式文法到数学的极限-1-乔姆斯基和他的形式文法"><span class="nav-number">1.</span> <span class="nav-text">从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析器"><span class="nav-number">1.1.</span> <span class="nav-text">语法分析器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巴克斯-瑙尔范式"><span class="nav-number">1.2.</span> <span class="nav-text">巴克斯-瑙尔范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法层级"><span class="nav-number">1.3.</span> <span class="nav-text">语法层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法推导"><span class="nav-number">1.4.</span> <span class="nav-text">语法推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学推理"><span class="nav-number">1.5.</span> <span class="nav-text">数学推理</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -860,26 +858,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
