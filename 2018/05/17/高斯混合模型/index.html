@@ -101,8 +101,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/GMM_2.png">
 <meta property="og:image" content="http://yoursite.com/images/GMM_3.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/17/高斯混合模型/images/GMM_1.jpg">
-<meta property="og:updated_time" content="2018-05-17T15:31:56.650Z">
+<meta property="og:image" content="http://yoursite.com/images/GMM_1.jpg">
+<meta property="og:updated_time" content="2018-05-17T15:35:56.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高斯混合模型">
 <meta name="twitter:description" content="混合高斯模型要解决的问题与一些假设观察到从K个类中产生的样本$X={x_1^T,x_2^T,…,x_M^T}^T\in R^{M\times N}$，M个样本，每个样本N维，但是每一个样本没有对应的标签标记该样本是属于哪一个类，如何确定这些样本最有可能的分布方式？这就是一个无监督学习问题。使用混合高斯模型解决该聚类问题时，假设每一个类内部的样本服从高斯分布，（并且类与类之间的互相独立？）。 基于以">
@@ -427,7 +427,7 @@
 <p>带入原式得<br>$$\pi_k=\frac{\sum_{m=1}^M\gamma(z_{mk})}{\sum_{k=1}^K\sum_{m=1}^M\gamma(z_{mk})}$$</p>
 <h2 id="EM方法"><a href="#EM方法" class="headerlink" title="EM方法"></a>EM方法</h2><p>根据最初推导的模型，如果我们知道\pi_k，\mu_k与\Sigma_k，那么我们就相当于解决了问题，可以根据这三个参数得到所需的概率密度，从而可以对原样本进行划分，对新样本进行预测。然而经过最大似然求解，我们发现无法得到闭式解。</p>
 <p>观察$\pi_k$，$\mu_k$与$\Sigma_k$的表达式，发现我们之所以我们计算出$\pi_k$，$\mu_k$与$\Sigma_k$是因为我们无法得到$\gamma(z_k)$，而无法计算$\gamma(z_k)$又是因为$\gamma(z_k)$依赖于$\pi_k$，$\mu_k$与$\Sigma_k$。</p>
-<p>其依赖关系如下图<br><img src="./images/GMM_1.jpg" alt="图三"></p>
+<p>其依赖关系如下图<br><img src="/images/GMM_1.jpg" alt="图三"></p>
 <p>则从上图很容易想到一个迭代过程：</p>
 <blockquote>
 <ol>
@@ -555,6 +555,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/05/18/Random-Forest/" rel="prev" title="Random Forest">
+                Random Forest <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -634,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -645,7 +649,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="fun math,python," />
+  <meta name="keywords" content="machine_leanring," />
 
 
 
@@ -91,20 +91,18 @@
 
 
 
-<meta name="description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
-<meta name="keywords" content="fun math,python">
+<meta name="description" content="之前我们讲到了决策树，现在我们来讲一下随机森林，把这段知识补上。 首先什么是随机森林？随机森林就是用随机的方式建立一个森林，在森林里有很多决策树组成，并且每一棵决策树之间是没有关联的。当有一个新样本的时候，我们让森林的每一棵决策树分别进行判断，看看这个样本属于哪一类，然后用投票的方式，哪一类被选择的多，作为最终的分类结果。在回归问题中，随机森林输出所有决策树输出的平均值。  随机森林既可以用于分类">
+<meta name="keywords" content="machine_leanring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 的闭包、装饰器">
-<meta property="og:url" content="http://yoursite.com/2018/03/17/python-的闭包、装饰器/index.html">
+<meta property="og:title" content="Random Forest">
+<meta property="og:url" content="http://yoursite.com/2018/05/18/Random-Forest/index.html">
 <meta property="og:site_name" content="Treamy&#39;s website">
-<meta property="og:description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
+<meta property="og:description" content="之前我们讲到了决策树，现在我们来讲一下随机森林，把这段知识补上。 首先什么是随机森林？随机森林就是用随机的方式建立一个森林，在森林里有很多决策树组成，并且每一棵决策树之间是没有关联的。当有一个新样本的时候，我们让森林的每一棵决策树分别进行判断，看看这个样本属于哪一类，然后用投票的方式，哪一类被选择的多，作为最终的分类结果。在回归问题中，随机森林输出所有决策树输出的平均值。  随机森林既可以用于分类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/decorator.png">
-<meta property="og:updated_time" content="2018-03-17T10:10:55.183Z">
+<meta property="og:updated_time" content="2018-05-18T16:41:17.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 的闭包、装饰器">
-<meta name="twitter:description" content="一、闭包（Closure）什么是闭包？ 在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相">
-<meta name="twitter:image" content="http://yoursite.com/images/decorator.png">
+<meta name="twitter:title" content="Random Forest">
+<meta name="twitter:description" content="之前我们讲到了决策树，现在我们来讲一下随机森林，把这段知识补上。 首先什么是随机森林？随机森林就是用随机的方式建立一个森林，在森林里有很多决策树组成，并且每一棵决策树之间是没有关联的。当有一个新样本的时候，我们让森林的每一棵决策树分别进行判断，看看这个样本属于哪一类，然后用投票的方式，哪一类被选择的多，作为最终的分类结果。在回归问题中，随机森林输出所有决策树输出的平均值。  随机森林既可以用于分类">
 
 
 
@@ -134,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/17/python-的闭包、装饰器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/18/Random-Forest/"/>
 
 
 
 
 
-  <title>python 的闭包、装饰器 | Treamy's website</title>
+  <title>Random Forest | Treamy's website</title>
   
 
 
@@ -288,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/python-的闭包、装饰器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/Random-Forest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Treamy">
@@ -305,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python 的闭包、装饰器</h1>
+          <h1 class="post-title" itemprop="name headline">Random Forest</h1>
         
 
         <div class="post-meta">
@@ -317,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T17:33:14+08:00">
-                2018-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T23:22:33+08:00">
+                2018-05-18
               </time>
             
 
@@ -340,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/" itemprop="url" rel="index">
-                    <span itemprop="name">math</span>
+                  <a href="/categories/machine-leanring/" itemprop="url" rel="index">
+                    <span itemprop="name">machine_leanring</span>
                   </a>
                 </span>
 
@@ -351,8 +349,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/math/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/machine-leanring/theory/" itemprop="url" rel="index">
+                    <span itemprop="name">theory</span>
                   </a>
                 </span>
 
@@ -388,45 +386,87 @@
       
 
       
-        <h1 id="一、闭包（Closure）"><a href="#一、闭包（Closure）" class="headerlink" title="一、闭包（Closure）"></a>一、闭包（Closure）</h1><h2 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h2><blockquote>
-<p>在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例。—— <a href="https://zh.wikipedia.org/wiki/闭包_(计算机科学" target="_blank" rel="noopener">维基百科</a>)</p>
-</blockquote>
-<p>这里我给个简单的解释：一个<strong>闭包</strong>就是你调用了一个<em>函数A</em>，这个<em>函数A</em>返回了一个<em>函数B</em>给你。这个<strong>返回的函数B</strong>就叫做闭包。你在<strong>调用函数A</strong>的时候<strong>传递的参数</strong>就是<strong>自由变量</strong>。</p>
-<h2 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_func</span><span class="params">(age)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'name:'</span>, name, <span class="string">'age:'</span>, age</span><br><span class="line">    <span class="keyword">return</span> inner_func</span><br><span class="line"></span><br><span class="line">bb = func(<span class="string">'matrix'</span>)</span><br><span class="line">bb(<span class="number">26</span>)  <span class="comment"># &gt;&gt;&gt; name: matrix age: 26</span></span><br></pre></td></tr></table></figure>
-<p>这里面调用func的时候就产生了一个闭包– <em>inner_func</em>,并且该闭包持有自由变量– <em>name</em>，因此这也意味着，当函数func的生命周期结束之后，<strong>name这个变量依然存在</strong>，因为它被闭包引用了，所以不会被回收。</p>
-<ul>
-<li>也有人说这种内部函数inner_func可以使用外部函数的变量name的行为就叫闭包。</li>
-</ul>
-<h1 id="二、装饰器（Decorator）"><a href="#二、装饰器（Decorator）" class="headerlink" title="二、装饰器（Decorator）"></a>二、装饰器（Decorator）</h1><h2 id="什么是装饰器？"><a href="#什么是装饰器？" class="headerlink" title="什么是装饰器？"></a>什么是装饰器？</h2><blockquote>
-<p>“装饰器的功能是将被装饰的函数当作参数传递给与装饰器对应的函数（名称相同的函数），并返回包装后的被装饰的函数”</p>
-</blockquote>
-<p>听起来有点绕，没关系，直接看示意图,其中a为 与<em>装饰器@a</em>对应的函数，<em>b</em>为装饰器修饰的函数，<em>装饰器@a</em>的作用是：<br><img src="/images/decorator.png" alt="image"><br><strong>简而言之：@a 就是将 b 传递给 a()，并返回新的 b = a(b)</strong></p>
-<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><ol>
-<li><p>先导入包：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br></pre></td></tr></table></figure>
+        <p>之前我们讲到了决策树，现在我们来讲一下随机森林，把这段知识补上。</p>
+<h2 id="首先什么是随机森林？"><a href="#首先什么是随机森林？" class="headerlink" title="首先什么是随机森林？"></a>首先什么是随机森林？</h2><p>随机森林就是用随机的方式建立一个森林，在森林里有很多决策树组成，并且每一棵决策树之间是没有关联的。当有一个新样本的时候，我们让森林的每一棵决策树分别进行判断，看看这个样本属于哪一类，然后用投票的方式，哪一类被选择的多，作为最终的分类结果。在回归问题中，随机森林输出所有决策树输出的平均值。</p>
+<ol>
+<li><p>随机森林既可以用于分类，也可以用于回归。</p>
 </li>
-<li><p>定义一个检查参数的装饰器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkParams</span><span class="params">(fn)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">        temp = map(<span class="keyword">lambda</span> x:isinstance(x,(int,)),numbers) <span class="comment"># 检查参数是否都为整型</span></span><br><span class="line">        <span class="keyword">if</span> reduce(<span class="keyword">lambda</span> x,y: x <span class="keyword">and</span> y, temp): <span class="comment"># 若都为整型</span></span><br><span class="line">            <span class="keyword">return</span> fn(*numbers)             <span class="comment"># 则调用fn(*numbers)返回计算结果</span></span><br><span class="line">        <span class="comment">#否则通过logging记录错误信息，并友好退出</span></span><br><span class="line">        logging.warning(<span class="string">"variable numbers cannot be added"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">return</span> wrapper     <span class="comment">#fn引用gcd，被封存在闭包的执行环境中返回</span></span><br></pre></td></tr></table></figure>
+<li><p>它是一种降维手段，用于处理缺失值和异常值。</p>
 </li>
-<li><p>然后定义求最大公约数的函数（能求多个的最大公约数）：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    <span class="string">"""return the greatest common divisor of the given integers."""</span></span><br><span class="line">    <span class="keyword">return</span> reduce(math.gcd, numbers)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;gcd = checkParams(gcd)</span><br><span class="line">&gt;&gt;&gt;gcd(3, <span class="string">'hello'</span>)</span><br><span class="line"><span class="comment"># 输出 WARNING:root: variable numbers cannot be added</span></span><br></pre></td></tr></table></figure>
+<li><p>它是集成学习的重要方法。</p>
 </li>
 </ol>
-<p>注意checkParams函数：</p>
-<blockquote>
+<h2 id="两个随机抽取"><a href="#两个随机抽取" class="headerlink" title="两个随机抽取"></a>两个随机抽取</h2><blockquote>
 <ul>
-<li>首先看参数fn，当我们调用checkParams(gcd)的时候，它将成为函数对象gcd的一个本地(Local)引用；</li>
-<li>在checkParams内部，我们定义了一个wrapper函数，添加了参数类型检查的功能，然后调用了fn(*numbers)，根据LEGB法则，解释器将搜索几个作用域，并最终在(Enclosing层) checkParams函数的本地作用域中找到fn；</li>
-<li>注意最后的return wrapper，这将创建一个闭包，fn变量(gcd函数对象的一个引用)将会封存在闭包的执行环境中，不会随着checkParams的返回而被回收；</li>
+<li>样本有放回随机抽取固定数目</li>
 </ul>
 </blockquote>
-<p>当调用gcd = checkParams(gcd)时，gcd指向了新的wrapper对象，它添加了参数检查和记录日志的功能，同时又能够通过封存的fn，继续调用原始的gcd进行最大公约数运算。</p>
-<p>因此调用gcd(3, ‘hello’)将不会返回计算结果，而是打印出日志：root: variable numbers cannot be added。</p>
-<p>有人觉得add = checkParams(add)这样的写法未免太过麻烦，于是python提供了一种更优雅的写法，被称为<strong>语法糖</strong>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@checkParams</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lcm</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    <span class="string">"""return lowest common multiple."""</span></span><br><span class="line">    f = <span class="keyword">lambda</span> a,b:int((a*b)/gcd(a,b))</span><br><span class="line">    <span class="keyword">return</span> reduce(f, numbers)</span><br></pre></td></tr></table></figure></p>
-<p>其实这只是一种写法上的优化，解释器仍然会将它转化为gcd = checkParams(gcd)来执行。</p>
+<blockquote>
+<ul>
+<li>构建决策树时，特征随机抽取</li>
+</ul>
+</blockquote>
+<p>解释：两个随机性的引入对随机森林的分类性能至关重要。由于它们的引入，使得随机森林不容易陷入过拟合，并且具有很好得抗噪能力（比如：对缺省值不敏感）</p>
+<h2 id="随机森林算法是如何工作的？"><a href="#随机森林算法是如何工作的？" class="headerlink" title="随机森林算法是如何工作的？"></a>随机森林算法是如何工作的？</h2><p>在随机森林中，每一个决策树<strong>“种植”</strong>和<strong>“生长”</strong>的四个步骤：</p>
+<ul>
+<li>假设我们设定训练集中的样本个数为N，然后通过有放回的有放回的随机选择N个样本(一次)，用这选择好了的N个样本用来训练一个决策树，作为决策树根节点处的样本；</li>
+<li>当每个样本有M个属性时，在决策树的每个节点需要分裂时，随机从这M个属性中选取出m个属性，满足条件m &lt;&lt; M。然后从这m个属性中采用某种策略（比如说信息增益）来选择1个属性作为该节点的分裂属性。</li>
+<li>每棵决策树都最大可能地进行生长而不进行剪枝；</li>
+<li>通过对所有的决策树进行加总来预测新的数据（在分类时采用多数投票，在回归时采用平均）。</li>
+</ul>
+<h2 id="随机森林的优缺点"><a href="#随机森林的优缺点" class="headerlink" title="随机森林的优缺点"></a>随机森林的优缺点</h2><p><strong>优点：</strong></p>
+<ul>
+<li>由于每次不再考虑全部的属性，而是一个属性子集，所以相比于Bagging计算开销更小，训练效率更高</li>
+<li>对高维数据的处理能力强，可以处理成千上万的输入变量，是一个非常不错的降维方法</li>
+<li>能够输出特征的重要程度, 基于<strong>oob误分类率</strong>和基于<strong>Gini系数的变化</strong></li>
+<li>有效的处理缺省值</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>在噪声较大的时候容易过拟合</li>
+</ul>
+<h2 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h2><p>随机森林分类效果（错误率）与两个因素有关：</p>
+<ol>
+<li><p>森林中任意两棵树的<strong>相关性</strong>：相关性越大，错误率越大；</p>
+</li>
+<li><p>森林中每棵树的<strong>分类能力</strong>：每棵树的分类能力越强，整个森林的错误率越低。</p>
+</li>
+</ol>
+<p>减小特征选择个数m，树的相关性和分类能力也会相应的降低；增大m，两者也会随之增大。所以关键问题是如何选择最优的m（或者是范围），这也是随机森林唯一的一个参数。在学习如何选择参数前首先介绍oob的概念。</p>
+<h2 id="oob：袋外错误率"><a href="#oob：袋外错误率" class="headerlink" title="oob：袋外错误率"></a>oob：袋外错误率</h2><p>为了选择最优的m，这里需要利用的是<code>袋外错误率oob</code>（out-of-bag error）。我们知道，在构建每个决策树的时候，采用的是随机有放回的抽取，所以对于每棵树来说，都有一些样本(约占1/3)实际上没有参与树的生成，所以这些样本成为袋外样本，即oob。与交叉验证类似，我们可以将这个决策树的obb样本作为这棵树的验证集，对oob集合进行估计的步骤入下：</p>
+<ol>
+<li>对每个样本，计算它作为oob样本的树对它的分类情况</li>
+<li>多数投票作为该样本的分类结果</li>
+<li>用误分个数占样本总数的比率作为随机森林的oob误分率</li>
+</ol>
+<p>oob误分率是随机森林泛化误差的一个<strong>无偏估计</strong>，它的结果近似于需要大量计算的k折交叉验证。所以没有必要对它进行交叉验证或者用一个独立的测试集来获得误差的一个无偏估计。它可以在内部进行评估，也就是说在生成的过程中就可以对误差建立一个无偏估计。</p>
+<p>当我们知道了oob的计算方法，我们可以通过选取不同的m，计算oob_error，找出oob_error最小时对应的m的值。这和交叉验证的思想非常的相似。</p>
+<h2 id="RF特征重要性的度量方法"><a href="#RF特征重要性的度量方法" class="headerlink" title="RF特征重要性的度量方法"></a>RF特征重要性的度量方法</h2><ul>
+<li>对于每一棵决策树，计算其oob_error_0</li>
+<li>选取一个特征，随机对特征加入噪声干扰，再次计算oob error_1</li>
+<li>特征的重要性=∑(oob_error_1-oob_error_0)/随机森林中决策树的个数</li>
+<li>对随机森林中的特征变量按照特征重要性降序排序。</li>
+<li>然后重复以上步骤，直到选出m个特征。</li>
+</ul>
+<p>解释：用这个公式来度量特征重要性，原因是：给某个特征随机的加入噪声后，如果oob error增大，说明这个特征对样本分类的结果影响比较大，说明重要程度比较高。</p>
+<h2 id="RF特征选择"><a href="#RF特征选择" class="headerlink" title="RF特征选择"></a>RF特征选择</h2><p>首先特征选择的目标有两个：</p>
+<p>1：找到与分类结果高度相关的特征变量。</p>
+<p>2：选择出数目较少的特征变量并且能够充分的预测应变量的结果。</p>
+<p>特征选择的步骤：</p>
+<p>（1）对于每一棵决策树，计算其oob_error</p>
+<p>（2）随机的修改OOB中的每个特征xi的值，计算oob_error_2，再次计算重要性</p>
+<p>（3）按照特征的重要性排序，然后剔除后面不重要的特征</p>
+<p>（4）然后重复以上步骤，直到选出m个特征。</p>
+<h2 id="几个问题"><a href="#几个问题" class="headerlink" title="几个问题"></a>几个问题</h2><p>###（1）为什么要随机抽取样本？</p>
+<p>答：如果不进行随机抽样，对于每个树的训练集都是相同的，训练出来的结果也是一样的，所以此时进行投票决策没有意义。</p>
+<p>###（2）为什么要有放回的去抽样呢?</p>
+<p>答：如果不是有放回的抽样，那么每一棵树的训练样本是不同的，都是没有交集的，那么每棵树都是有偏的，都是片面的，树与树之间并不是完全公平的。我们需要的是，没颗决策树是公平的，然后让它们投票决策得出结果，并且这样可以防止过度拟合。</p>
+<p>###（3）这里指的有放回的抽样，是每次抽一个放回，还是一次抽n个再放回？</p>
+<p>答: 构造子数据集，子数据集的数据量是和原始数据集相同的。不同子数据集的元素可以重复，同一个子数据集中的元素也可以重复。</p>
+<h3 id="4-随机森林为什么可以用于处理缺失值和异常值的数据？"><a href="#4-随机森林为什么可以用于处理缺失值和异常值的数据？" class="headerlink" title="(4)随机森林为什么可以用于处理缺失值和异常值的数据？"></a>(4)随机森林为什么可以用于处理缺失值和异常值的数据？</h3><p>答：随机森林的容错率高，由于随机森林多棵树，如果一个数据缺失了的字段刚好有些树不需要这些特征，于是可以用该些树进行预测，从而得到结果。而决策树的话很有可能无法进行预测。</p>
+<h3 id="5-随机森林为什么不容易过拟合，为什么对噪声不敏感？"><a href="#5-随机森林为什么不容易过拟合，为什么对噪声不敏感？" class="headerlink" title="(5)随机森林为什么不容易过拟合，为什么对噪声不敏感？"></a>(5)随机森林为什么不容易过拟合，为什么对噪声不敏感？</h3><p>答：三个随机性的引入，即产生决策树的样本是随机生成，构建决策树的特征值是随机选取，树产生过程中裂变的时候是选择N个最佳方向中的随机一个裂变的。当随机森林产生的树的数目趋近无穷的时候，理论上根据大数定理可以证明训练误差与测试误差是收敛到一起的。</p>
+<p>当然实际过程中，由于不可能产生无穷的决策树，模型参数的设置问题会影响在相同运行时间内拟合结果的过拟合程度的不同。但总而言之，调整参数后，随机森林可以有效的降低过拟合的程度。</p>
+<p> 另外多颗决策树综合决策，以多数为输出代表，也能在一定程度上减少误差。</p>
 
       
     </div>
@@ -495,9 +535,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/fun-math/" rel="tag"><i class="fa fa-tag"></i> fun math</a>
-          
-            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+            <a href="/tags/machine-leanring/" rel="tag"><i class="fa fa-tag"></i> machine_leanring</a>
           
         </div>
       
@@ -510,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/13/hexo常用命令笔记/" rel="next" title="hexo常用命令笔记">
-                <i class="fa fa-chevron-left"></i> hexo常用命令笔记
+              <a href="/2018/05/17/高斯混合模型/" rel="next" title="高斯混合模型">
+                <i class="fa fa-chevron-left"></i> 高斯混合模型
               </a>
             
           </div>
@@ -519,10 +557,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/18/Radial-basis-function-kernel/" rel="prev" title="Radial basis function kernel">
-                Radial basis function kernel <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、闭包（Closure）"><span class="nav-number">1.</span> <span class="nav-text">一、闭包（Closure）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子："><span class="nav-number">1.2.</span> <span class="nav-text">举个例子：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、装饰器（Decorator）"><span class="nav-number">2.</span> <span class="nav-text">二、装饰器（Decorator）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是装饰器？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是装饰器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子"><span class="nav-number">2.2.</span> <span class="nav-text">举个例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先什么是随机森林？"><span class="nav-number">1.</span> <span class="nav-text">首先什么是随机森林？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个随机抽取"><span class="nav-number">2.</span> <span class="nav-text">两个随机抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林算法是如何工作的？"><span class="nav-number">3.</span> <span class="nav-text">随机森林算法是如何工作的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林的优缺点"><span class="nav-number">4.</span> <span class="nav-text">随机森林的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要参数"><span class="nav-number">5.</span> <span class="nav-text">重要参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oob：袋外错误率"><span class="nav-number">6.</span> <span class="nav-text">oob：袋外错误率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RF特征重要性的度量方法"><span class="nav-number">7.</span> <span class="nav-text">RF特征重要性的度量方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RF特征选择"><span class="nav-number">8.</span> <span class="nav-text">RF特征选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个问题"><span class="nav-number">9.</span> <span class="nav-text">几个问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-随机森林为什么可以用于处理缺失值和异常值的数据？"><span class="nav-number">9.1.</span> <span class="nav-text">(4)随机森林为什么可以用于处理缺失值和异常值的数据？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-随机森林为什么不容易过拟合，为什么对噪声不敏感？"><span class="nav-number">9.2.</span> <span class="nav-text">(5)随机森林为什么不容易过拟合，为什么对噪声不敏感？</span></a></li></ol></li></ol></div>
             
 
           </div>
