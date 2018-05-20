@@ -128,6 +128,65 @@
   </entry>
   
   <entry>
+    <title>支持向量机(SVM)详解</title>
+    <link href="http://yoursite.com/2018/05/07/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM-%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/05/07/支持向量机-SVM-详解/</id>
+    <published>2018-05-07T04:48:26.000Z</published>
+    <updated>2018-05-20T06:09:10.919Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>P.S. 鉴于个人水平有限，若有表述错误之处敬请指出，愿我们共同进步~</p></blockquote><h1 id="基本型推导"><a href="#基本型推导" class="headerlink" title="基本型推导"></a>基本型推导</h1><p>SVM一直是我最喜欢的几个算法之一，所以没事喜欢推一推。</p><p>这里尝试用简单直白的语言来对它的推导过程进行介绍~如果你觉得你已经把高数和高中数学忘得差不多了，我想这或许就是你一直在找的简明SVM推导过程介绍~😋</p><p>给定$D={(x_1,y_1),(x_2,y_2),…,(x_m,y_m)},y_i \in {-1,+1}$，SVM考虑基于训练集$D$在样本空间中找到一个划分超平面(hiperplane)，将不同类别的样本分开。</p><p><img src="/images/SVM/P1.png" alt="图1"></p><p>划分超平面方程：<br>$${\bf \omega}^Tx+b=0 \tag{1}$$<br>（别慌，它其实就是一条直线公式而已）<br>其中$\omega=(\omega_1;\omega_2;…;\omega_d;)$为法向量，决定了超平面的方向；$b$为位移项，决定了超平面与原点之间的距离。通常划分超平面用$(\omega,b)$来表示，因为其可被法向量$\omega$和位移$b$确定。<br>样本空间中任意点$x$到超平面$(\omega,b)$的距离可写为<br>$$r=\frac{|\omega^Tx+b|}{||\omega||} \tag{2}$$<br>（再次别慌，让我们转动我们掌握了初中数学知识的小脑瓜来想一下，其实这就是点到直线的距离公式对吧）<br>假设超平面$(\omega,b)$能将训练样本正确分类，对于$(x_i,y_i)\in D$,有以下式子：<br>$$\begin{cases}\omega^Tx_i+b &gt; 0, &amp; y_i = +1\\omega^Tx_i+b &lt; 0, &amp; y_i = -1\end{cases} \tag{3}$$<br>这其实便是<strong>逻辑回归</strong>的思路，非黑即白，但是这明显对自己的算法太自信了对吧。我们可爱的支持向量机对此表示怀疑，并且多留了一个心眼，于是它令：<br>$$\begin{cases}\omega^Tx_i+b \geq +1, &amp; y_i = +1\\omega^Tx_i+b \leq -1, &amp; y_i = -1\end{cases} \tag{4}$$</p><p>如图所示：<br><img src="/images/SVM/P2.jpg" alt="图2"></p><p>其中距离划分超平面最近的几个训练样本点使上式的等号成立，这几个训练样本就被称作<strong>支持向量（support vector）</strong>，两个异类支持向量到超平面的距离之和，也称为<strong>间隔（margin）</strong>，为<br>$$\gamma = \frac{2}{||\omega||} \tag{5}$$<br>(其实就是 $\omega^Tx_i+b = +1 $和$ \omega^Tx_i+b = -1 $两个超平面之间的距离公式)</p><p>那么按我们的设想，我们做分类学习，实际上就是为了找到一个划分超平面将这些样本给隔开，那么什么样子的划分超平面是最有效的呢？<br>从直观上来看，位于正负样本“正中间”的划分超平面，也就是上图<strong>红色</strong>的那一个划分超平面，应该是最好的，因为它的鲁棒性最好，对未知样本的泛化性最好。</p><h2 id="那么如何去得到这个刚好位于正负样本“正中间”的划分超平面呢？"><a href="#那么如何去得到这个刚好位于正负样本“正中间”的划分超平面呢？" class="headerlink" title="那么如何去得到这个刚好位于正负样本“正中间”的划分超平面呢？"></a>那么如何去得到这个刚好位于正负样本“正中间”的划分超平面呢？</h2><p>思考一下，是不是只要我们让间隔最大，这样只要我们取间隔中间的那条直线，我们就可以找到这个最棒的划分超平面了？<br>换句话说，对于基于SVM的分类学习而言，问题已经从找到一个最好的划分超平面转换为了找到样本空间里的最大化间隔。<br>我们用数学语言来描述一下这个更新后的问题，就变成了找到能满足$式(4)$的约束条件的参数$\omega$和$b$，并且要使得$\gamma = \frac{2}{||\omega||}$中的$\gamma$最大。<br>用数学公式来表示是这个样子:<br>$$max_{\omega,b} \frac{2}{||\omega||},s.t. y_i(\omega^Tx_i+b) \geq 1, i = 1,2,…,m \tag{6}$$<br>OK，你可能会喊：<br>等等等等，$max_{\omega,b} \frac{2}{||\omega||}$是表示$\max ,\gamma$我懂，但是你这个条件$y_i(\omega^Tx_i+b) \geq 1, i = 1,2,…,m$是什么鬼你要不要解释一下？</p><p>嗯咳，让我们暂停一下，回看一下约束条件(即正确分类的条件)：<br>$$\begin{cases}\omega^Tx_i+b \geq +1, &amp; y_i = +1\\omega^Tx_i+b \leq -1, &amp; y_i = -1\end{cases} \tag{7}$$<br>注意，是不是上下两个约束条件的左右式子相乘（$ \omega^Tx_i+b \geq +1 <em> y_i = +1$ or $\omega^Tx_i+b \leq -1 </em> y_i = -1$ ）就等于$y_i(\omega^Tx_i+b) \geq 1$了？</p><p>OK，让我们继续往下。对于式子<br>$$max_{\omega,b} \frac{2}{||\omega||},s.t. y_i(\omega^Tx_i+b) \geq 1, i = 1,2,…,m \tag{8}$$<br>显然，为了最大化间隔，仅需最大化$\frac{1}{||\omega||}$，为了使目标函数光滑从而方便计算，于是这等价于最小化$||\omega||^2$。<br>于是上式我们可以重写为：<br>$$min_{\omega,b}\frac{1}{2}||\omega||^2,s.t. y_i(\omega^Tx_i+b) \geq 1, i = 1,2,…,m \tag{9}$$<br>这就是SVM的<strong>基本型</strong>。</p><p>我们需要注意到，它其实是一个<strong>凸二次规划问题（convex quadratic programming）</strong>，可以用之前的拉格朗日乘子法求解。</p><h2 id="SVM的拉格朗日函数"><a href="#SVM的拉格朗日函数" class="headerlink" title="SVM的拉格朗日函数"></a>SVM的拉格朗日函数</h2><p>首先回顾一下拉格朗日函数标准型<br>$$\min \ f(x)； \ \ s.t. g_i(x) \leq 0； i = 1,…,m, h_i(x) = 0； i = 1,…,m  \tag{10}$$<br>你可以看到，SVM基本式相对拉格朗日函数标准型而言，有<br>$f(\omega, b) = \frac{1}{2}||\omega||^2$<br>$g(\omega, b) = 1-y_i(\omega^Tx_i+b) \leq 0,i=1,2,…,m.$<br>$h(\omega, b) = 0$</p><p>因此，我们将SVM的$f(\omega, b)、g(\omega, b)、h(\omega, b)$代入(10)后，就可以得到该问题的拉格朗日函数了，即<br>$$L(\omega,b, \alpha) = \frac{1}{2}||\omega||^2 + \sum_{i=1}^m \alpha_i (1-y_i(\omega^Tx_i + b)) \tag{11}$$<br>其中$\alpha = (\alpha_1; \alpha_2;…;\alpha_m)$,拉格朗日乘子$\alpha_i \geq 0$。</p><p>通常一个优化问题可以从两个角度来考虑，即主问题(primal problem)和对偶问题(dual problem)。在约束最优化问题中，常常利用拉格朗日对偶性将原始问题（主问题）转换成对偶问题，通过解对偶问题来得到原始问题的解。这样做是因为对偶问题的复杂度往往低于主问题。<br>所以在求解SVM的时候，我们也会通过其拉格朗日对偶性，将该主问题$式(9)$转换成对偶问题，然后进行求解。</p><h2 id="SVM的对偶问题"><a href="#SVM的对偶问题" class="headerlink" title="SVM的对偶问题"></a>SVM的对偶问题</h2><p>需要说明的是，因为主问题本身是一个凸二次规划问题，因此它是能直接用现成的优化计算包求解的，使用拉格朗日乘子法得到其对偶问题是为了优化运算效率。</p><p>那么让我们回顾一下SVM的主问题$式(9)$和SVM的拉格朗日函数$式(10)$，其中$\alpha = (\alpha_1; \alpha_2;…;\alpha_m)$,拉格朗日乘子$\alpha_i \geq 0$。</p><p>你可以发现，SVM恰恰满足了前面博客中我们讲过的的强对偶性。</p><p>因此，考虑令$L(\omega,b, \alpha)$对$\omega$和$b$的偏导为0可得<br>$$\omega = \sum_{i=1}^m \alpha_i y_i x_i \tag{12}$$<br>$$0 = \sum_{i=1}^m \alpha_i y_i \tag{13}$$<br>将式(12)代入(11)，就可以将$L(\omega,b, \alpha)$中的$\omega$和$b$消去，再考虑式(13)的约束，就得到式（9）的对偶问题。<br>$$max_{\alpha} \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j x_i^T x_j \tag{14}$$<br>$$s.t. \sum_{i=1}^m \alpha_i y_i = 0, \alpha_i \geq 0, i=1,2,…,m$$</p><p>求解该模型，解出$\alpha$后，求出$\omega$和$b$即可得到模型<br>$$f(x) = \omega^T x + b = \sum_{i=1}^m \alpha_i y_i x_i^Tx + b \tag{15}$$<br>从对偶问题（14）解出的$\alpha_i$是式(11)中的拉格朗日乘子，它恰好对应着训练样本$(x_i,y_i)$。因为式(9)中有不等式约束，因此上述过程还需满足KKT条件，即<br>$$\begin{cases}\alpha_i \geq 0\ y_i f(x_i)-1 \geq 0\ \alpha_i(y_i f(x_i)-1) = 0\end{cases} \tag{16}$$</p><p>于是，对任意训练样本$(x_i,y_i)$，总有$\alpha_i=0$或$y_i f(x_i)=1$。</p><ul><li>若$\alpha_i = 0$，则该样本将不会在式（4.1）的求和中出现，也就不会对$f(x)$产生任何影响；</li><li>若$\alpha_i &gt; 0$，则必有$y_i f(x_i)=1$，所对应的样本点位于最大间隔边界上，是一个支持向量。</li></ul><p>这显示出支持向量机的一个重要性质：</p><blockquote><p>训练完成后，大部分的训练样本都不需保留，最终模型仅与支持向量有关。</p></blockquote><p>那么如何求解式（14）呢？<br>不难发现，这是一个二次规划问题，可使用通用的二次规划算法来求解，这一部分可以参考刚才对【二次规划】的讲解，除此之外，还可以使用SMO等算法对其进行求解。<br>关于SMO算法，我们就下次再说啦~</p><h1 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h1><p>见我GitHub。</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>[1] 《统计学习方法》李航 著  清华大学出版社<br>[2]《机器学习》 周志华 著 清华大学出版社<br>[3] Stanford CS229 Machine Learning的教学资料：<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/section/cs229-cvxopt.pdf</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;P.S. 鉴于个人水平有限，若有表述错误之处敬请指出，愿我们共同进步~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;基本型推导&quot;&gt;&lt;a href=&quot;#基本型推导&quot; class=&quot;headerlink&quot; title=&quot;基本型推导&quot;&gt;&lt;/a&gt;基
+      
+    
+    </summary>
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/categories/machine-leanring/"/>
+    
+      <category term="code" scheme="http://yoursite.com/categories/machine-leanring/code/"/>
+    
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/tags/machine-leanring/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拉格朗日对偶性</title>
+    <link href="http://yoursite.com/2018/05/02/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7/"/>
+    <id>http://yoursite.com/2018/05/02/拉格朗日对偶性/</id>
+    <published>2018-05-02T07:47:57.000Z</published>
+    <updated>2018-05-20T06:09:14.793Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h1><h2 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h2><p>首先是凸集，这个的几何意义如图所示，指集合中任意两点间的线段永远在集合中的集合。<br><img src="/images/计算/凸集.jpg" alt="图3"></p><p>你可以看到，左图中任意两点，它们的线段一定会在C这个集合中，所以它就是一个凸集，但是对于右图而言，其线段就可能会有部分不在集合中，因此它不是凸集。</p><p>如果我们用数学定义来描述凸集的话，它是指这样的一个集合$C$：对任意$x,y \in C, \lambda \in R, 0 \leq \lambda \leq 1$，都有<br>$$\lambda x + (1-\lambda)y \in C \tag{1}$$</p><p>常见的凸集有：</p><blockquote><p>n维实数空间； 一些范数约束形式的集合； 仿射子空间； 凸集的交集； n维半正定矩阵集。</p></blockquote><h2 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h2><p>那么知道凸集是什么意思后，让我们看看凸函数。<br>凸函数的几何意义是，函数任意两点(x, y)连线上的值一定大于对应自变量区(x, y)间内的函数值(f(x),f(y))，示例图如下：<br><img src="/images/计算/凸函数.jpg" alt="图4"></p><p>你可以看到，将xy连接起来的直线上的值，一定大于xy两点范围内的函数值$f(x)$</p><p>如果我们用数学定义来描述凸函数的话，凸函数$f(x)$是这样的一个函数：定义域为凸集$D(f)$，且对于任意$x,y \in D(f),\lambda \in R, 0 \leq \lambda \leq 1$，有<br>$$f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y) \tag{2}$$</p><p>常见的凸函数有:</p><blockquote><p>指数函数族；非负对数函数；仿射函数；二次函数；常见的范数函数；凸函数非负加权的和等。</p></blockquote><p>##凸优化问题</p><p>讲解完凸集和凸函数的定义，终于到凸优化问题了。<br>凸优化问题，实际上就是研究定义于凸集中的凸函数最小化问题。<br>正式的说，凸优化问题在优化问题中的形式是这样的<br>$$\min \ f(x), \ \ s.t. x \in C \tag{3}$$<br>其中$f$是一个凸函数，$C$为凸集，$x$是优化变量。<br>因为上面这个表达还是有些含糊，所以凸优化问题我们更常用这个形式来表示它<br>$$\min \ f(x), \ \ s.t. g_i(x) \leq 0, i = 1,…,m, h_i(x) = 0, i = 1,…,m \tag{4}$$<br>其中$f$是一个凸函数，$g_i$是一个凸函数, $h_i$为仿射函数，$x$是优化变量。</p><p>常见的凸优化问题有:</p><blockquote><p>线性规划、二次规划、二次约束的二次规划、半正定规划。</p></blockquote><h1 id="二次规划"><a href="#二次规划" class="headerlink" title="二次规划"></a>二次规划</h1><p>二次规划（Quadratic Programming，简称QP）是一类典型的优化问题，包括凸二次规划和非凸二次优化。在此类问题中，目标函数是变量的二次函数，而约束条件是变量的线性不等式。<br>假定变量个数为$d$，约束条件的个数是$m$，则标准的二次规划问题形如<br>$$min_x \frac{1}{2} x^TQx + c^Tx,\ s.t. Ax \leq b \tag{5}$$<br>其中$x$为$d$维向量，$ Q\in R^{d \times d}$为实对称矩阵，$ A \in R^{m \times d}$为实矩阵，$b \in R^m$和$c \in R^d$为实向量，$Ax \leq b$的每一行对应一个约束。</p><h2 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h2><p>拉格朗日乘子法（Largrange multipliers）是一种寻找多元函数在一组约束下的极值的方法。通过引入拉格朗日乘子，可将有$d$个变量与$k$个约束条件的最优化问题转化为具有$d+k$个变量的无约束优化问题求解。<br>这样说你可能会觉得很抽象，那么让我们先举一个稍微简单一点的例子。</p><h3 id="等式约束的优化问题"><a href="#等式约束的优化问题" class="headerlink" title="等式约束的优化问题"></a>等式约束的优化问题</h3><p>先考虑一个等式约束的优化问题，假定$x$为$d$维向量，我们想要寻找$x$的某个取值$x^*$，使得目标函数$f(x)$最小且同时满足$g(x)=0$的约束。从几何角度看，这个问题的目标是在方程$g(x)=0$确定的$d-1$维曲面上寻找能使目标函数最小化的点。如图所示<br><img src="/images/计算/拉格朗日乘子.jpg" alt="图4"></p><p>通过上面的描述，我们不难得到如下结论：<br>对于约束曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面；<br>在最优点$x^<em>$，目标函数在该点的梯度$\nabla f(x^</em>)$正交于约束曲面；</p><p>由此可知，在最优点$x^<em>$，如上图所示，梯度$\nabla g(x)$和$\nabla f(x)$的方向必相同或相反，即存在$\lambda \neq 0$($\lambda$称为拉格朗日乘子)使得<br>$$\nabla f(x^</em>) + \lambda \nabla g(x^*) = 0 \tag{6}$$<br>基于上面这个式子，我们可以定义拉格朗日函数<br>$$L(x,\lambda) = f(x) + \lambda g(x) \tag{7}$$</p><p>你可能会疑惑，为什么拉格朗日函数会是这个样子。那么让我们对这个函数进行求导看看：<br>当$L(x,\lambda)$对$x$求导时：(因为要求最优解，所以我们需要置$\nabla_x L(x, \lambda)$为0)<br>$$\nabla_x L(x, \lambda) = \nabla f(x) + \lambda \nabla g(x) = 0 \tag{8}$$<br>当$L(x,\lambda)$对$\lambda$求导时：（我们同样置$\nabla_{\lambda} L(x, \lambda)$为0）<br>$$\nabla_{\lambda} L(x, \lambda) = 0 + g(x) = 0 \tag{9}$$</p><p>注意，在一开始，我们的目标是寻找$x$的某个取值$x^*$，使得目标函数$f(x)$最小且同时满足$g(x)=0$的约束。<br>那么通过拉格朗日函数的两次对不同变量的求导，你可以发现<br>式(8) = 式(6)，这是为了使得目标函数$f(x)$最小<br>    式(9) = 约束条件$g(x)=0$，这是为了满足约束条件</p><p>因此，原约束优化问题就转化为了对拉格朗日函数$L(x, \lambda)$的无约束优化问题。</p><h3 id="不等式约束的优化问题"><a href="#不等式约束的优化问题" class="headerlink" title="不等式约束的优化问题"></a>不等式约束的优化问题</h3><p>现在考虑不等式约束$g(x) \leq 0$，如图4所示，此时最优点$x^*$要么在$g(x) &lt; 0 $的区域里，要么在边界$g(x) = 0$上。<br><img src="/images/计算/拉格朗日乘子.jpg" alt="图4"></p><p>对于$g(x)&lt;0$的情形，约束$g(x) \leq 0$不起作用，可直接通过条件$\nabla f(x)=0$来获得最优点，这等价于将$\lambda$置0，然后对$\nabla_x L(x, \lambda)$置0得到最优点<br>对于$g(x)=0$的情形，类似于上面我们对等式约束的分析，但需注意的是，此时$\nabla f(x^<em>)$的方向必与$\nabla g(x^</em>)$相反，即存在常数$\lambda &gt; 0$使得$\nabla f(x^<em>) + \lambda \nabla g(x^</em>) = 0$</p><p>对上面描述的两种情况进行整合，在约束$g(x) \leq 0$下最小化$f(x)$的任务，可以转化为在如下约束下最小化$L(x,\lambda) = f(x) + \lambda g(x)$的任务：<br>$$\begin{cases}g(x) \leq 0\ \lambda \geq 0\ \lambda_j g_j(x) = 0\end{cases} \tag{10}$$</p><p>式(2.10)就是大名鼎鼎的Karush-Kuhn-Tucker（简称KKT）条件。<br>多个约束条件的优化问题</p><p>在对等式约束优化问题和不等式约束优化问题进行讲解后，我们可以将其推广到多个约束。<br>考虑具有$m$个等式约束和$n$个不等式约束，且可行域$D \subset R^d$非空的优化问题<br>$$min_x \ f(x),\ \ s.t. \ h_i(x)=0 \ (i = 1,…,m), \ g_j(x) \leq 0 \ (j = 1,…,m) \tag{11}$$<br>引入拉格朗日乘子$\lambda = (\lambda_1, \lambda_2, …, \lambda_m)^T$和$\mu = (\mu_1,\mu_2,…,\mu_n)^T$，相应的拉格朗日函数为<br>$$L(x,\lambda, \mu) = f(x) + \sum_{i=1}^m \lambda_i h_i(x) +\sum_{j=1}^n \mu_j g_j(x) \tag{12}$$<br>由不等式约束引入的KKT条件(j=1,2,…,n)为<br>$$\begin{cases}g_j(x) \leq 0\ \mu_j \geq 0\ \mu_j g_j(x) = 0\end{cases} \tag{13}$$</p><h2 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h2><p>前面我们说过，一个优化问题可以从两个角度来考虑，即主问题(primal problem)和对偶问题(dual problem)。在约束最优化问题中，常常利用拉格朗日对偶性将原始问题（主问题）转换成对偶问题，通过解对偶问题来得到原始问题的解。这样做是因为对偶问题的复杂度往往低于主问题。</p><h3 id="多约束对偶问题"><a href="#多约束对偶问题" class="headerlink" title="多约束对偶问题"></a>多约束对偶问题</h3><p>多约束对偶问题的通用解</p><p>多约束对偶问题的主问题:<br>$$min_x \ f(x),\ \ s.t. \ h_i(x)=0 \ (i = 1,…,m), \ g_j(x) \leq 0 \ (j = 1,…,m) \tag{11}$$<br>其相应的拉格朗日函数为<br>$$L(x,\lambda, \mu) = f(x) + \sum_{i=1}^m \lambda_i h_i(x) +\sum_{j=1}^n \mu_j g_j(x) \tag{12}$$</p><p>基于(12)，对主问题(11)的拉格朗日对偶函数$\Gamma: R^m \cdot R^n \rightarrow R$定义为<br>$$\Gamma(\lambda,\mu) = inf_{x \in D} L(x,\lambda,\mu) = inf_{x \in D} (f(x) + \sum_{i=1}^m \lambda_i h_i(x) +\sum_{j=1}^n \mu_j g_j(x)) \tag{13}$$<br>若$\tilde{x} \in D$为主问题(11)可行域中的点，则对任意$\mu \geq 0$和$\lambda$都有<br>$$\sum_{i=1}^m \lambda_i h_i(x) + \sum_{j=1}^n \mu_j g_j(x) \leq 0 \tag{14}$$<br>进而有<br>$$\Gamma(\lambda,\mu) = inf_{x \in D} L(x,\lambda,\mu) \leq L(\tilde{x},\lambda,\mu) \leq f(\tilde{x}) \tag{15}$$</p><p>若主问题(2.11)的最优值为$p^<em>$，则对任意$\mu \geq 0$和$\lambda$都有<br>$$\Gamma(\lambda,\mu) \leq p^</em> \tag{3.4}$$<br>即对偶函数给出了主问题最优值的下界。显然，这个下界取决于$\mu$和$\lambda$的值。于是一个很自然的问题就是：基于对偶函数能获得的最好下界是什么？这就引出了优化问题<br>$$max_{\lambda, \mu} \Gamma(\lambda, \mu) \ \ s.t. \mu \geq 0 \tag{16}$$</p><p>式(16)就是主问题（11）的对偶问题，其中$\mu$和$\lambda$称为<strong>对偶变量（dual variable）</strong>。无论主问题（11）的凸性如何，对偶问题（16）始终是凸优化问题。</p><p>考虑式(16)的最优值$d^<em>$，显然有$d^</em> \leq p^*$，这称为<strong>“弱对偶性(weak duality)”</strong>成立；</p><p>若$d^<em> = p^</em>$，则称为<strong>“强对偶性（strong duality）”</strong>成立，此时由对偶问题能获得主问题的最优下界；</p><p>对于一般的优化问题，强对偶性通常不成立，但是若主问题是凸优化问题，如式(11)中$f(x)$和$g_j(x)$均为凸函数，$h_i(x)$为仿射函数，且其可行域中至少有一点使不等式约束严格成立，则此时强对偶性成立。</p><p>P.S. 在强对偶性成立时，将拉格朗日函数分别对元变量和对偶变量求导，再同时令导数等于0，即可得到原变量与对偶变量的数值关系。<br>于是对偶问题解决了，主问题也就解决了。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><p>《统计学习方法》李航 著  清华大学出版社</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;预备知识&quot;&gt;&lt;a href=&quot;#预备知识&quot; class=&quot;headerlink&quot; title=&quot;预备知识&quot;&gt;&lt;/a&gt;预备知识&lt;/h1&gt;&lt;h2 id=&quot;凸集&quot;&gt;&lt;a href=&quot;#凸集&quot; class=&quot;headerlink&quot; title=&quot;凸集&quot;&gt;&lt;/a&gt;凸集&lt;/h
+      
+    
+    </summary>
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/categories/machine-leanring/"/>
+    
+    
+      <category term="machine_leanring" scheme="http://yoursite.com/tags/machine-leanring/"/>
+    
+      <category term="math" scheme="http://yoursite.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>logistic regression</title>
     <link href="http://yoursite.com/2018/04/23/logistic-regression/"/>
     <id>http://yoursite.com/2018/04/23/logistic-regression/</id>
@@ -288,9 +347,9 @@
       <category term="python" scheme="http://yoursite.com/categories/math/python/"/>
     
     
-      <category term="fun math" scheme="http://yoursite.com/tags/fun-math/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="fun math" scheme="http://yoursite.com/tags/fun-math/"/>
     
   </entry>
   

@@ -4,6 +4,53 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/02/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7/</loc>
+    <lastmod>2018-05-20T06:09:14.793Z</lastmod>
+    <data>
+        <display>
+        <title>拉格朗日对偶性</title>
+        <pubTime>2018-05-02T07:47:57.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/05/07/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM-%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2018-05-20T06:09:10.919Z</lastmod>
+    <data>
+        <display>
+        <title>支持向量机(SVM)详解</title>
+        <pubTime>2018-05-07T04:48:26.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/18/Random-Forest/</loc>
     <lastmod>2018-05-18T16:41:17.706Z</lastmod>
     <data>
@@ -281,9 +328,9 @@
         <title>python 的闭包、装饰器</title>
         <pubTime>2018-03-17T09:33:14.000Z</pubTime>
         
-        <tag>fun math</tag>
-         
         <tag>python</tag>
+         
+        <tag>fun math</tag>
          
          
            
