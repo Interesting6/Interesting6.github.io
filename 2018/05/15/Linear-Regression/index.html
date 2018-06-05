@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Treamy&#39;s website">
 <meta property="og:description" content="假设$h(x)=y$，有大量样本，求$h(x)$是什么?那么可以假设$$h(x)=\theta_{0} x^0 +\theta _{1}x^1+\theta _{2}x^2+…+\theta _{n}x^n+…$$因为$x^0=1$所以$\theta_{0} *x^0$可以简化为$\theta_{0} $ 为了方便，这里先记只有$\theta_{0}$ 和$\theta_{1}$ 的情况，原公式就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T14:48:32.064Z">
+<meta property="og:updated_time" content="2018-05-25T16:45:56.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Regression">
 <meta name="twitter:description" content="假设$h(x)=y$，有大量样本，求$h(x)$是什么?那么可以假设$$h(x)=\theta_{0} x^0 +\theta _{1}x^1+\theta _{2}x^2+…+\theta _{n}x^n+…$$因为$x^0=1$所以$\theta_{0} *x^0$可以简化为$\theta_{0} $ 为了方便，这里先记只有$\theta_{0}$ 和$\theta_{1}$ 的情况，原公式就">
@@ -395,9 +395,9 @@
 <p>由于方程中没有$f(x)$，而$f(x)=y$，所以方程可以写为：$\sum_{i}^{m}{} (h(x_{i} )-y_{i}  )^2$</p>
 <p>我们定义观测结果$y$和预测结果$y’$之间的差别为Rss:<br>$$Rss = \sum_{i=1}^{m}({y_i-y_i’} )^2= \sum_{i=1}^{m}({y_i-h(x_i)} )^2 = (y-h(x))^T*(y-h(x))$$</p>
 <p>设若参数的矩阵为$\theta$,则$h(x)=\theta*x$</p>
-<p>那么$$Rss  = (y-h(X))^T<em>(y-h(X)) =  (y-\theta x)^T</em>(y-\theta x) $$</p>
+<p>那么$$ Rss = (y-h(X))^T<em>(y-h(X)) = (y-\theta x)^T</em>(y-\theta x) $$</p>
 <p>按照我们的定义，这个Rss的意思是y和y’之间的差，那么当Rss无限趋近于0的时候，则y≈y’，即我们求得的预测结果就等于实际结果。</p>
-<p>于是，令Rss等于某一极小值$\delta$ ，则$(y-\theta x)^T*(y-\theta x) = \delta $</p>
+<p>于是，令Rss等于某一极小值$\delta$ ，则$(y-\theta x)^T*(y-\theta x) = \delta$</p>
 <p>对参数$\theta$求导，得：<br>$$\frac{d}{d\theta}(y-\theta x)^T<em>(y-\theta x) = 2x^T</em>(y-\theta x) = 0$$</p>
 <p>展开，得$ x^T<em>y=x^T</em>\theta<em>x=x^T x</em>\theta$</p>
 <p>进而就可以得到$\theta ==(x^T<em>x)^{-1}</em>x^T*y$</p>
