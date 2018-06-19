@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/19/PCA%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2018-06-19T12:47:23.450Z</lastmod>
+    <data>
+        <display>
+        <title>PCA原理</title>
+        <pubTime>2018-06-19T12:41:03.000Z</pubTime>
+        
+        <tag>machine_leanring</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="machine_leanring" url="http://yoursite.com/categories/machine-leanring/"/>
+          
+             
+              <breadCrumb title="code" url="http://yoursite.com/categories/machine-leanring/code/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/15/my-kmeans/</loc>
     <lastmod>2018-06-05T11:36:54.524Z</lastmod>
     <data>
