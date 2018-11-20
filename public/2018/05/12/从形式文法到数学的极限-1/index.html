@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="math, NLP,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Treamy's website" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
+<meta name="keywords" content="math, NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从形式文法到数学的极限(1)">
+<meta property="og:url" content="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/index.html">
+<meta property="og:site_name" content="Treamy&#39;s website">
+<meta property="og:description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-13T15:28:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从形式文法到数学的极限(1)">
+<meta name="twitter:description" content="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法诺姆·乔姆斯基（Noam Chomsky），美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。 语法分析器在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/">
+
+
+
+
+
+  <title>从形式文法到数学的极限(1) | Treamy's website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Interesting6"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Treamy's website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/从形式文法到数学的极限-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Treamy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Treamy's website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从形式文法到数学的极限(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T22:38:27+08:00">
+                2018-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="从形式文法到数学的极限-1-乔姆斯基和他的形式文法"><a href="#从形式文法到数学的极限-1-乔姆斯基和他的形式文法" class="headerlink" title="从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法"></a>从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法</h1><p><em>诺姆·乔姆斯基（Noam Chomsky）</em>，美国语言学家，为科学作出的最大贡献便是他提出的形式文法。这个概念一经提出，直接促成了不知道多少重要技术，其中收益最多的领域可能就是信息行业了。</p>
+<h2 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h2><p>在计算机中，要想使写好的代码运行起来，必须要有一个叫做“编译”的中间过程，将代码转换成可直接由机器执行的文件（这里只涉及编译型语言）。为了让计算机在编译时读懂你写的代码，一个适当的语法分析器是必不可少的。</p>
+<p>每种语言都有自己不同的语法，语法分析器按照各种语言定义的语法，逐字符地将源代码解析成一棵语法树。<br>而用来描述这种语法的工具，就是乔姆斯基的形式文法。</p>
+<h2 id="巴克斯-瑙尔范式"><a href="#巴克斯-瑙尔范式" class="headerlink" title="巴克斯-瑙尔范式"></a>巴克斯-瑙尔范式</h2><p>要定义一套语法很简单，下面是一组（简陋的）示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;sentence&gt; := [ &lt;subject&gt; ] &lt;predicate&gt; &#123; &lt;object&gt; &#125;</span><br><span class="line">&lt;subject&gt; := &lt;nominal-phrase&gt;</span><br><span class="line">&lt;object&gt; := &lt;nominal-phrase&gt;</span><br><span class="line">&lt;nominal-phrase&gt; := &lt;quantifier&gt; &lt;noun&gt;</span><br><span class="line">&lt;quantifier&gt; := &lt;article&gt; | &lt;number&gt;</span><br><span class="line">&lt;article&gt; := &quot;a&quot; | &quot;an&quot; | &quot;the&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>如你所见，所有的字面量都很直观、浅显，只是有几个符号需要解释一下：</p>
+<pre><code>每条语法的最左项是它的名字，用尖括号括起来，跟随一个冒号和一个等号，表示定义；
+在语法定义里引用其他语法，也用尖括号括起要引用的名字即可；
+若要表示出现与否均可的选项，用方括号括起，比如 &lt;sentence&gt; 里的 &lt;subject&gt;；
+若要表示出现任意次数（包括 0 次），用大括号括起，比如 &lt;sentence&gt; 里的 &lt;object&gt;；
+若要表示多个模式里任选，用竖杠分隔开；
+若要表示欲匹配的字符串，用双引号括起。
+</code></pre><p>这种书写记号是荷兰学者<em>瑙尔（Naur）</em>最先提出的，后经美国学者<em>巴克斯（Bakus）</em>完善，形成了现在的<strong>巴克斯-瑙尔范式</strong>。乔姆斯基在他自己的形式文法里，也采用了类似<strong>B-N 范式</strong>的书写方式。</p>
+<p>他把所有出现在尖括号里的那些名称称作“非终结符”，意为可以继续向下分解成更小的单位；将出现在引号里的字符串称作“终结符”，意为<strong>最小单位</strong>，不可继续分解。在语言学中，通常用大写字母表示非终结符，而用小写字母表示终结符。</p>
+<h2 id="语法层级"><a href="#语法层级" class="headerlink" title="语法层级"></a>语法层级</h2><p>乔姆斯基给他的文法根据不同的规则划分了不同的等级，以表示它们所描述语言的<code>“自由”</code>程度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 型语言：任意语法所描述的语言都是 0 型的</span><br><span class="line">上下文有关（1 型）语言：对于所有语法都有 aAb := cBd 形式的语言，称之为上下文有关语言</span><br><span class="line">上下文无关（2 型）语言：对于所有语法都有 A := aBb 形式的语言，称之为上下文无关语言</span><br><span class="line">正则（3 型）语言：对于所有语法都有 A := aB 或 A := Ba 形式的语言，称之为正则语言</span><br></pre></td></tr></table></figure></p>
+<p>可以看出，从上到下对语法的限制愈发增多，语言的多样性也随之减少。对于 1 和 2 型语言的命名中的“有关”、“无关”，是指非终结符的解析是否受其邻接的终结符影响。</p>
+<p>大部分自然语言都是上下文有关语言。比如英语中<code>&quot;I broke a window&quot;</code>和<code>&quot;The window broke&quot;</code>中的<code>&quot;broke&quot;</code>便是受到宾语有无的影响而分别成为了及物和不及物动词。</p>
+<p>上下文无关语言主要被用于设计程序，这是因为解析 2 型语言时不需考虑语法结构所处的上下文，其语法解析器相对容易实现。</p>
+<p>可以看出，正则语言的表达能力极为受限，因为其解析过程只能在每一步中增添一前缀或后缀。对于总是增加前缀的正则语言，我们称为左线性语言，反之称为右线性语言。事实上，对这种高度受限的语言，人们已经设计出来一些强大的用来解析它们的工具了，比如正则表达式。</p>
+<h2 id="语法推导"><a href="#语法推导" class="headerlink" title="语法推导"></a>语法推导</h2><p>对于任意一组语法和一个指定的非终结符，总是可以根据其中的规则将这个非终结符扩展成一个终结符串（可能是无限的）。<br>比如对于这条（正则）文法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A&gt; := &quot;a&quot; &lt;A&gt; | &quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>不断地将 <code>&lt;A&gt;</code>替换为<code>&quot;a&quot;</code>，便可以推出下列字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, aa, aaa, aaaa, ...</span><br></pre></td></tr></table></figure></p>
+<p>如果一个字符串（包括终结符和非终结符）能由某组语法推导过来，就说这个字符串规约到这组语法。</p>
+<h2 id="数学推理"><a href="#数学推理" class="headerlink" title="数学推理"></a>数学推理</h2><p>在数学上，我们把最开始给定的那组语法叫做“公理”，把由所有终结符可能构成的字符串称作“命题”。所有的公理都是公认为真的命题，比如欧式几何里的“过两点必有一条直线”。</p>
+<p>对于那些可以规约到公理的命题，我们说它们是也是真的，并称它们为“定理”。而公理到定理的推导过程，自然就叫“证明”。</p>
+<p>所有的公理都可以在自己前面加上一个终结符“非”，来变成自己的反命题。对于所有能规约到公理的反命题的命题，我们说它们是假的。这样，所有命题就有了自己的真假，或者更专业一点地，叫它们“真值”。</p>
+<p>对于任意的数学命题，只需要对它们进行规约，看看是否能回到最初的公理即可知道它们正确与否了。</p>
+<p>这似乎看上去太美好了，你怎么能保证所有命题都一定能规约到公理或它们的反命题上去呢？有没有可能存在一个命题，它根本就不可能通过有限次规约，得到最初的公理呢？</p>
+<p>还真的有一个神人挖到了这么一个大坑，直接否定了数学的完备性（即所有命题均能证明或证伪）。至于这人是谁，以及这坑怎么挖的，请看下回分解。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得本文对你有帮助的话，不如给作者一点打赏吧~ 谢谢！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Treamy 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Treamy 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/math-NLP/" rel="tag"><i class="fa fa-tag"></i> math, NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/支持向量机-SVM-详解/" rel="next" title="支持向量机(SVM)详解">
+                <i class="fa fa-chevron-left"></i> 支持向量机(SVM)详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/15/Linear-Regression/" rel="prev" title="Linear Regression">
+                Linear Regression <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Treamy">
+            
+              <p class="site-author-name" itemprop="name">Treamy</p>
+              <p class="site-description motion-element" itemprop="description">Live and Learn</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从形式文法到数学的极限-1-乔姆斯基和他的形式文法"><span class="nav-number">1.</span> <span class="nav-text">从形式文法到数学的极限 (1) - 乔姆斯基和他的形式文法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析器"><span class="nav-number">1.1.</span> <span class="nav-text">语法分析器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#巴克斯-瑙尔范式"><span class="nav-number">1.2.</span> <span class="nav-text">巴克斯-瑙尔范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法层级"><span class="nav-number">1.3.</span> <span class="nav-text">语法层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法推导"><span class="nav-number">1.4.</span> <span class="nav-text">语法推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学推理"><span class="nav-number">1.5.</span> <span class="nav-text">数学推理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Treamy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span class="post-meta-divider">|</span> &nbsp本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+  <script type="text/javascript" opacity="0.8" zindex="-2" count="60" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
