@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="machine_leanring,python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Treamy's website" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="混合高斯模型要解决的问题与一些假设观察到从K个类中产生的样本$X={x_1^T,x_2^T,…,x_M^T}^T\in R^{M\times N}$，M个样本，每个样本N维，但是每一个样本没有对应的标签标记该样本是属于哪一个类，如何确定这些样本最有可能的分布方式？这就是一个无监督学习问题。使用混合高斯模型解决该聚类问题时，假设每一个类内部的样本服从高斯分布，（并且类与类之间的互相独立？）。 基于以">
+<meta name="keywords" content="machine_leanring,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高斯混合模型">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/高斯混合模型/index.html">
+<meta property="og:site_name" content="Treamy&#39;s website">
+<meta property="og:description" content="混合高斯模型要解决的问题与一些假设观察到从K个类中产生的样本$X={x_1^T,x_2^T,…,x_M^T}^T\in R^{M\times N}$，M个样本，每个样本N维，但是每一个样本没有对应的标签标记该样本是属于哪一个类，如何确定这些样本最有可能的分布方式？这就是一个无监督学习问题。使用混合高斯模型解决该聚类问题时，假设每一个类内部的样本服从高斯分布，（并且类与类之间的互相独立？）。 基于以">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/GMM_2.png">
+<meta property="og:image" content="http://yoursite.com/images/GMM_3.png">
+<meta property="og:image" content="http://yoursite.com/images/GMM_1.jpg">
+<meta property="og:updated_time" content="2018-05-17T15:35:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高斯混合模型">
+<meta name="twitter:description" content="混合高斯模型要解决的问题与一些假设观察到从K个类中产生的样本$X={x_1^T,x_2^T,…,x_M^T}^T\in R^{M\times N}$，M个样本，每个样本N维，但是每一个样本没有对应的标签标记该样本是属于哪一个类，如何确定这些样本最有可能的分布方式？这就是一个无监督学习问题。使用混合高斯模型解决该聚类问题时，假设每一个类内部的样本服从高斯分布，（并且类与类之间的互相独立？）。 基于以">
+<meta name="twitter:image" content="http://yoursite.com/images/GMM_2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/17/高斯混合模型/">
+
+
+
+
+
+  <title>高斯混合模型 | Treamy's website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Interesting6"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Treamy's website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/高斯混合模型/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Treamy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Treamy's website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">高斯混合模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T23:30:24+08:00">
+                2018-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-leanring/" itemprop="url" rel="index">
+                    <span itemprop="name">machine_leanring</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-leanring/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="混合高斯模型要解决的问题与一些假设"><a href="#混合高斯模型要解决的问题与一些假设" class="headerlink" title="混合高斯模型要解决的问题与一些假设"></a>混合高斯模型要解决的问题与一些假设</h2><p>观察到从K个类中产生的样本$X={x_1^T,x_2^T,…,x_M^T}^T\in R^{M\times N}$，M个样本，每个样本N维，但是每一个样本没有对应的标签标记该样本是属于哪一个类，如何确定这些样本最有可能的分布方式？这就是一个无监督学习问题。使用混合高斯模型解决该聚类问题时，假设每一个类内部的样本服从高斯分布，（并且类与类之间的互相独立？）。</p>
+<h2 id="基于以上假设如何对观察到的样本进行建模？"><a href="#基于以上假设如何对观察到的样本进行建模？" class="headerlink" title="基于以上假设如何对观察到的样本进行建模？"></a>基于以上假设如何对观察到的样本进行建模？</h2><p>信息不完全，需要引入<strong>隐变量</strong>来表示每个样本具体属于哪一个类。引入变量$z_{mk}$表示<strong>第m个样本</strong>是否属于<strong>第k类</strong>，若第m个样本属于第k类则$z_{mk}=1$，否则$z_{mk}=0$。显然，对于一个样本，其对应的k个$z$中只有一个为1，其他都为0，因为一个样本只能属于一个类。所以有$\sum_{k=1}^{K}z_{mk}=1$。</p>
+<p>对于某一个样本$x$，其被观察到的概率为$p(x)$，则其可由$x$与$z$的联合分布中消去$z$得到，即<br>$p(x)=\sum_{z}{p(x,z)} =\sum_{k=1}^{K}{p(x,z_{k}=1)}$。</p>
+<p>由混合高斯模型的假设可知$p(x|z_{k}=1)=\mathcal{N}(x|\mu_k,\Sigma_k) $，即每个类的内部的样本服从高斯分布。</p>
+<p>如果再假设先验：对于任意一个样本$x$，其属于第k类的概率为$p(z_k=1)=\pi_k$。可以理解为任意取一个样本$x$，忽略其本身的特征，其属于第k类的概率为$\pi_k$。也可看做第k类样本在总体样本中所占的比例，所以有$\sum_{k=1}^K\pi_k=1$。</p>
+<p>则根据以上的假设可以得到$x$与$z$的联合分布为</p>
+<p>$p(x,z_k=1)=p(x|z_k=1)p(z_k=1)=\pi_k \mathcal{N}(x|\mu_k,\Sigma_k)$。</p>
+<p>所以$p(x)=\sum_{z}{p(x,z)} =\sum_{k=1}^{K}{p(x,z_{k}=1)}=\sum_{k=1}^K\pi_k \mathcal{N}(x|\mu_k,\Sigma_k)$。</p>
+<p>至此，我们已经对样本建模完成，若果我们知道隐变量$z$的值的话，这个问题就直接是一个分类问题，以上就是一个高斯判别式模型GDA，直接求出$\mu_k$与$\Sigma_k$就可以得到我们需要的总体样本的分布$p(x)$。</p>
+<p>对于一个新样本需要预测其所属的类别，可以通过贝叶斯公式得到：观察到一个样本$x$，其属于第k类的概率为<br>$$p(z_k=1|x)=\frac{p(x,z_k=1)}{p(x)} =\frac{\pi_k\mathcal{N}(x|\mu_k,\Sigma_k)}{\sum_{k=1}^K\pi_k\mathcal{N}(x|\mu_k,\Sigma_k)}$$<br>为方便将$p(z_k=1|x)$记做$\gamma(z_k)$。</p>
+<p>但是我们不知道z的值，无法将每一个样本$x_m$对应到相应的$z_k$上去（即不知道哪个$z_{mk}=1$），所以无法计算出$\pi_k$，也无法根据似然函数去直接计算$\mu_k$与$\Sigma_k$。</p>
+<h2 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h2><p>如图1，图中的点在我们看来明显分成两个聚类。这两个聚类中的点分别通过两个不同的正态分布随机生成而来。但是如果没有GMM，那么只能用一个的二维高斯分布来描述图1中的数据。图1中的椭圆即为二倍标准差的正态分布椭圆。这显然不太合理，毕竟肉眼一看就觉得应该把它们分成两类。<br><img src="/images/GMM_2.png" alt="图一"><br>这时候就可以使用GMM了！如图2，数据在平面上的空间分布和图1一样，这时使用两个二维高斯分布来描述图2中的数据，分别记为$\mathcal{N}(\mu_1,\Sigma_1)$和$\mathcal{N}(\mu_2,\Sigma_2)$. 图中的两个椭圆分别是这两个高斯分布的二倍标准差椭圆。可以看到使用两个二维高斯分布来描述图中的数据显然更合理。实际上图中的两个聚类的中的点是通过两个不同的正态分布随机生成而来。如果将两个二维高斯分布$\mathcal{N}(\mu_1,\Sigma_1)$和$\mathcal{N}(\mu_2,\Sigma_2)$合成一个二维的分布，那么就可以用合成后的分布来描述图2中的所有点。最直观的方法就是对这两个二维高斯分布做线性组合，用线性组合后的分布来描述整个集合中的数据。这就是高斯混合模型（GMM）。<br><img src="/images/GMM_3.png" alt="image"></p>
+<h2 id="为什么无法根据似然函数计算-mu-k-与-Sigma-k-？"><a href="#为什么无法根据似然函数计算-mu-k-与-Sigma-k-？" class="headerlink" title="为什么无法根据似然函数计算$\mu_k$与$\Sigma_k$？"></a>为什么无法根据似然函数计算$\mu_k$与$\Sigma_k$？</h2><p>写出似然函数：<br>$$p(X|\pi,\mu,\Sigma)=\prod_{m=1}^{M}p(x_m)= \prod_{m=1}^{M}(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))$$</p>
+<p>取对数：<br>$$\theta(\pi,\mu,\Sigma;X)=ln\ p(X|\pi,\mu,\Sigma)=ln\prod_{m=1}^{M}p(x_m)= ln\prod_{m=1}^{M}(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))=\sum_{m=1}^Mln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))$$</p>
+<p>缺少隐变量$z$的信息会导致：</p>
+<ol>
+<li>$\pi_k$无法计算;</li>
+<li>$ln$中的求和符号无法消除（在GDA的似然中样本$x_m$不属于的类根本就不会出现在$ln$中）。</li>
+</ol>
+<p>对$\mu_k$求偏导<br>$$<br>\frac{\partial ln\ p(X|\pi,\mu,\Sigma)}{\partial \mu_k}=\frac{\partial \sum_{m=1}^Mln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))}{\partial \mu_k}$$$$=\sum_{m=1}^M\frac{\partial ln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))}{\partial \mu_k}=\sum_{m=1}^M\frac{\pi_k}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}\frac{\partial \mathcal{N}(x_m|\mu_k,\Sigma_k)}{\partial \mu_k}<br>$$$$=\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}\frac{\partial (-\frac{1}{2}(x_m-\mu_k)^T\Sigma_k^{-1}(x_m-\mu_k))}{\partial \mu_k}$$$$=\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}(-\frac{1}{2})\Sigma_k(x_m-\mu_k) $$</p>
+<p>令$\frac{\partial ln\ p(X|\pi,\mu,\Sigma)}{\partial \mu_k}=0$得<br>$$-\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}\Sigma_k(x_m-\mu_k)=0$$</p>
+<p>假设$\Sigma_k$可逆，则两边同乘以$\Sigma_k^{-1}$可消去$\Sigma_k$，则可得<br>$$\mu_k\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}=\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}x_m$$</p>
+<p>所以$$\mu_k=\frac{\sum_{m=1}^M\gamma(z_{mk})x_m}{\sum_{m=1}^M\gamma(z_{mk})}$$</p>
+<p>观察该公式，每个类的类中心相当于所有样本的加权平均数，对于第k类，每个样本的权重$w_{km}=\frac{\gamma(z_{mk})}{\sum_{m=1}^M\gamma(z_{mk})}$。</p>
+<p>对$\Sigma_k$求偏导<br>$$\frac{\partial ln\ p(X|\pi,\mu,\Sigma)}{\partial \Sigma_k}=\frac{\partial \sum_{m=1}^Mln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))}{\partial \Sigma_k}<br>$$$$=\sum_{m=1}^M\frac{\partial ln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))}{\partial \Sigma_k}=\sum_{m=1}^M\frac{\pi_k}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}\frac{\partial \mathcal{N}(x_m|\mu_k,\Sigma_k)}{\partial \Sigma_k}<br>$$$$=\sum_{m=1}^M\frac{\pi_k}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}\frac{1}{(2\pi)^{N/2}}\frac{\partial\frac{1}{|\Sigma_k|^{1/2}}exp{-\frac{1}{2}(x_m-\mu_k)^T\Sigma_k^{-1}(x_m-\mu_k)}}{\partial \Sigma_k}<br>$$$$=……….$$</p>
+<p>最后令$\frac{\partial ln\ p(X|\pi,\mu,\Sigma)}{\partial \Sigma_k}=0$得到<br>$$\Sigma_k\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}=\sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}(x_m-\mu_k)(x_m-\mu_k)^T$$</p>
+<p>所以$$\Sigma_k=\sum_{m=1}^M\frac{\gamma(z_{mk})(x_m-\mu_k)(x_m-\mu_k)^T}{\sum_{m=1}^M\gamma(z_{mk})}$$</p>
+<p>以上求导可以看出$\mu_k$与$\Sigma_k$<strong>互相嵌套</strong>，无法得到一个<strong>闭式解(解析解)</strong>。</p>
+<p>在似然函数中$\pi_k$也属于未知量，也需要对其求导进行优化</p>
+<p>在优化$\pi_k$使似然函数最小化的同时，$\pi_k$还需要满足条件$\sum_{k=1}^K\pi_k=1$。所以可以通过拉格朗日乘子将该约束加入似然函数得<br>$$\theta(\pi,\mu,\Sigma;X)=ln\ p(X|\pi,\mu,\Sigma)+\lambda(\sum_{k=1}^K\pi_k-1)=\sum_{m=1}^Mln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))+\lambda(\sum_{k=1}^K\pi_k-1)$$</p>
+<p>对\pi_k求偏导<br>$$\frac{\partial \theta(\pi,\mu,\Sigma;X)}{\partial \pi_k}=\sum_{m=1}^M\frac{\partial ln(\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k))}{\partial \pi_k}+\lambda\frac{\sum_{k=1}^K\pi_k-1}{\partial \pi_k}=\sum_{m=1}^M\frac{\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}+\lambda$$</p>
+<p>令$\frac{\partial \theta(\pi,\mu,\Sigma;X)}{\partial \pi_k}=0$得<br>$$\sum_{m=1}^M\frac{\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}+\lambda=0\Rightarrow \sum_{m=1}^M\frac{\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}\pi_k\mathcal{N}(x_m|\mu_k,\Sigma_k)}+\lambda\pi_k=0$$</p>
+<p>所以$\sum_{m=1}^M\gamma(z_{mk})+\lambda\pi_k=0$</p>
+<p>所以<br>$$\sum_{k=1}^K(\sum_{m=1}^M\gamma(z_{mk})+\lambda\pi_k)=0\Rightarrow \sum_{k=1}^K\sum_{m=1}^M\gamma(z_{mk})+\lambda\sum_{k=1}^K\pi_k=0\Rightarrow \lambda=-\sum_{k=1}^K\sum_{m=1}^M\gamma(z_{mk})$$</p>
+<p>带入原式得<br>$$\pi_k=\frac{\sum_{m=1}^M\gamma(z_{mk})}{\sum_{k=1}^K\sum_{m=1}^M\gamma(z_{mk})}$$</p>
+<h2 id="EM方法"><a href="#EM方法" class="headerlink" title="EM方法"></a>EM方法</h2><p>根据最初推导的模型，如果我们知道\pi_k，\mu_k与\Sigma_k，那么我们就相当于解决了问题，可以根据这三个参数得到所需的概率密度，从而可以对原样本进行划分，对新样本进行预测。然而经过最大似然求解，我们发现无法得到闭式解。</p>
+<p>观察$\pi_k$，$\mu_k$与$\Sigma_k$的表达式，发现我们之所以我们计算出$\pi_k$，$\mu_k$与$\Sigma_k$是因为我们无法得到$\gamma(z_k)$，而无法计算$\gamma(z_k)$又是因为$\gamma(z_k)$依赖于$\pi_k$，$\mu_k$与$\Sigma_k$。</p>
+<p>其依赖关系如下图<br><img src="/images/GMM_1.jpg" alt="图三"></p>
+<p>则从上图很容易想到一个迭代过程：</p>
+<blockquote>
+<ol>
+<li>初始化$\pi_k$，$\mu_k$与$\Sigma_k$。</li>
+<li>计算$\gamma(z_k)$，即预测对于一个样本x他属于哪个类$p(z_k=1|x)$。</li>
+<li>对所有样本预测完成后根据$\gamma(z_k)$重新计算$\pi_k$，$\mu_k$与$\Sigma_k$。</li>
+<li>若没有达到退出条件，从1.步继续迭代。</li>
+</ol>
+</blockquote>
+<p>初始化$\pi_k$，$\mu_k$与$\Sigma_k$步骤，可以选择向样本空间随机布置几个$\Sigma=I$的高斯分布得到，也可以使用K-means算法进行初始聚类后，对每个类生成一个初始高斯分布得到。</p>
+<p><strong> 完整混合高斯模型的EM算法如下：</strong></p>
+<blockquote>
+<ol>
+<li>初始化$\pi_k$，$\mu_k$与$\Sigma_k$，可以选择向样本空间随机布置几个$\Sigma=I$的高斯分布得到，也可以使用K-means算法进行初始聚类后，对每个类生成一个初始高斯分布得到。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>（E step）计算$\gamma(z_k)$，即预测对于一个样本$x$他属于哪个类<br>$$p(z_k=1|x)=\frac{\pi_k\mathcal{N}(x|\mu_k,\Sigma_k)}{\sum_{k=1}^K\pi_k\mathcal{N}(x|\mu_k,\Sigma_k)}$$</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>（M step）对所有样本预测完成后根据$\gamma(z_k)$重新计算$\pi_k$，$\mu_k$与$\Sigma_k$。<br>$$\mu_k^{new}=\frac{\sum_{m=1}^M\gamma(z_{mk})x_m}{\sum_{m=1}^M\gamma(z_{mk})},<br>\Sigma_k^{new}=\sum_{m=1}^M\frac{\gamma(z_{mk})(x_m-\mu_k)(x_m-\mu_k)^T}{\sum_{m=1}^M\gamma(z_{mk})}，<br>\pi_k^{new}=\frac{\sum_{m=1}^M\gamma(z_{mk})}{\sum_{k=1}^K\sum_{m=1}^M\gamma(z_{mk})}$$</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>评估似然函数<br>$$\theta(\pi^{new},\mu^{new},\Sigma^{new};X)=\sum_{m=1}^Mln(\sum_{k=1}^{K}\pi_k^{new}\mathcal{N}(x_m|\mu_k^{new},\Sigma_k^{new}))$$<br>若似然函数的变化没有低于某个阈值，继续迭代：<br>$$\pi_k=\pi_k^{new}，\mu_k=\mu_k^{new}，\Sigma_k=\Sigma_k^{new}。$$</li>
+</ol>
+</blockquote>
+<p>其中第2步被称为<strong>E step</strong>，即期望（分类）(expectation)步骤，其根据目前已知的参数$\pi_k$，$\mu_k$与$\Sigma_k$对样本的类型进行预测。<br>第3步被称为<strong>M step</strong>，即最大化（似然函数）（maximization）步骤，根据2步得到的新的分类情况最大化似然函数$\theta(\pi^{new},\mu^{new},\Sigma^{new};X)$，即使用第3步中的三个公式计算$\pi_k$，$\mu_k$与$\Sigma_k$就相当于最大化了似然函数。</p>
+<p>可以受到启示，要优化参数具有前面所展示的图中依赖关系的问题，均可以套用EM方法的迭代模式，对目标函数进行优化。</p>
+<h2 id="下面给出一个sklearn的例子"><a href="#下面给出一个sklearn的例子" class="headerlink" title="下面给出一个sklearn的例子"></a>下面给出一个sklearn的例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"><span class="keyword">from</span> sklearn.mixture <span class="keyword">import</span> GaussianMixture</span><br><span class="line"></span><br><span class="line">x = np.array([[<span class="number">1.2</span>,<span class="number">2.6</span>],[<span class="number">2.8</span>,<span class="number">3.9</span>],[<span class="number">3.2</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">-1</span>,<span class="number">0.2</span>],[<span class="number">-2</span>,<span class="number">-1</span>],[<span class="number">2</span>,<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#K-Means</span></span><br><span class="line">kmeans=KMeans(n_clusters=<span class="number">2</span>)</span><br><span class="line">kmeans.fit(x)</span><br><span class="line">print( <span class="string">'K-Means均值 = \n'</span>, kmeans.cluster_centers_ )</span><br><span class="line">print(kmeans.predict(x))</span><br><span class="line"></span><br><span class="line">gmm=GaussianMixture(n_components=<span class="number">2</span>,covariance_type=<span class="string">'full'</span>)</span><br><span class="line">gmm.fit(x)</span><br><span class="line">print(<span class="string">'GMM均值 = \n'</span>, gmm.means_  )</span><br><span class="line">print(gmm.fit(x))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得本文对你有帮助的话，不如给作者一点打赏吧~ 谢谢！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Treamy 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Treamy 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-leanring/" rel="tag"><i class="fa fa-tag"></i> machine_leanring</a>
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/15/Linear-Regression/" rel="next" title="Linear Regression">
+                <i class="fa fa-chevron-left"></i> Linear Regression
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/18/Random-Forest/" rel="prev" title="Random Forest">
+                Random Forest <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Treamy">
+            
+              <p class="site-author-name" itemprop="name">Treamy</p>
+              <p class="site-description motion-element" itemprop="description">Live and Learn</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#混合高斯模型要解决的问题与一些假设"><span class="nav-number">1.</span> <span class="nav-text">混合高斯模型要解决的问题与一些假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于以上假设如何对观察到的样本进行建模？"><span class="nav-number">2.</span> <span class="nav-text">基于以上假设如何对观察到的样本进行建模？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直观理解"><span class="nav-number">3.</span> <span class="nav-text">直观理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么无法根据似然函数计算-mu-k-与-Sigma-k-？"><span class="nav-number">4.</span> <span class="nav-text">为什么无法根据似然函数计算$\mu_k$与$\Sigma_k$？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM方法"><span class="nav-number">5.</span> <span class="nav-text">EM方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面给出一个sklearn的例子"><span class="nav-number">6.</span> <span class="nav-text">下面给出一个sklearn的例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Treamy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span class="post-meta-divider">|</span> &nbsp本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+  <script type="text/javascript" opacity="0.8" zindex="-2" count="60" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
